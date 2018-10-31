@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context displayName="primefaces" path="/primefaces" reloadable="true">
+
+   <Resource 
+      auth="Container" 
+      driverClassName="org.postgresql.Driver"
+      maxActive="10" 
+      maxIdle="3" 
+      name="jdbc/primefaces" 
+      password="123456"
+      type="javax.sql.DataSource" 
+      url="jdbc:postgresql://localhost/primefaces"
+      username="postgres" />
+
+</Context>
