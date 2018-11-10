@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context displayName="primefaces" path="/primefaces" reloadable="true">
+<Context displayName="ControlePonto" path="/ControlePonto" reloadable="true">
 
    <Resource 
       auth="Container" 
       driverClassName="org.postgresql.Driver"
       maxActive="10" 
       maxIdle="3" 
-      name="jdbc/primefaces" 
+      name="jdbc/ControlePonto" 
       password="123456"
       type="javax.sql.DataSource" 
-      url="jdbc:postgresql://localhost/primefaces"
+      url="jdbc:postgresql://localhost/ControlePonto"
       username="postgres" />
 
 </Context>

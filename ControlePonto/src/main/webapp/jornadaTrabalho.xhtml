@@ -7,34 +7,143 @@
 	xmlns:a="http://www.ambientinformatica.com.br/jsf2"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
+		<h:form>
+			<p:panel header="Cadastro Jornada de Trabalho" id="panel">
+				<h:panelGrid columns="2">
+					<h:outputLabel value="ID: "/>
+					<p:inputText id="id"
+						value="#{JornadaTrabalhoControl.jornadaTrabalho.id }"
+						required="false" label="ID"></p:inputText>
+					<p:messages id="messages" showDetail="true" />
+					<p:watermark for="id" value="Usado P/ Excluir e Alterar" id="watermark" />
+					
 
-		<p:panel header="Formulário" id="panel">
-			<h:panelGrid columns="2">
-				<h:outputText value="Nome"></h:outputText>
-				<p:inputText value="#{ContatoControl.contato.nome }"></p:inputText>
-				<h:outputText value="Telefone"></h:outputText>
-				<p:inputMask value="#{ContatoControl.contato.telefone }" mask="(99) 9999-9999"></p:inputMask>
-				<p:commandButton actionListener="#{ContatoControl.confirmar }" value="Confirmar" update="contatos, panel"></p:commandButton>
-			</h:panelGrid>
-		</p:panel>
-		
-		<p:dataTable id="contatos" value="#{ContatoControl.contatos }" var="cont"  width="100%" emptyMessage="Sem registros" >
-			<f:facet name="header">
-				<h:outputText value="Lista de Contatos"></h:outputText>
-			</f:facet>
-			<p:column sortBy="#{cont.nome }">
-				<f:facet name="header">
-					<h:outputText value="Nome"></h:outputText>
-				</f:facet>
-				<h:outputText value="#{cont.nome }"></h:outputText>
-			</p:column>	
-			<p:column sortBy="#{cont.telefone }">
-				<f:facet name="header">
-					<h:outputText value="Telefone"></h:outputText>
-				</f:facet>
-				<h:outputText value="#{cont.telefone }"></h:outputText>
-			</p:column>	
-		</p:dataTable>
+					<h:outputText value="Descrição"></h:outputText>
+					<p:inputText
+						value="#{JornadaTrabalhoControl.jornadaTrabalho.descricao }"></p:inputText>
+					<h:outputLabel for="multiple" value="Dias da Semana:" />
+					<p:selectCheckboxMenu id="multiple"
+						value="#{JornadaTrabalhoControl.jornadaTrabalho.diasDaSemana}"
+						label="Semana" multiple="true" filter="true"
+						filterMatchMode="startsWith" panelStyle="width:250px">
+						<f:selectItems value="#{JornadaTrabalhoControl.diasSemana}" />
+					</p:selectCheckboxMenu>
 
+					<!--
+					<p:commandButton value="Submit" update="displayItems"
+						oncomplete="PF('itemDialog').show()" style="margin-top:10px;" />
+					-->
+					<p:dialog header="Itens Selecionados" modal="true"
+						showEffect="fade" hideEffect="fade" widgetVar="itemDialog"
+						width="250">
+						<p:outputPanel id="displayItems">
+							<p:dataList
+								value="#{JornadaTrabalhoControl.jornadaTrabalho.diasDaSemana}"
+								var="dias" emptyMessage="nenhum dia da semana foi selecionada">
+								<f:facet name="header">
+                    			Dias da Semana
+                			</f:facet>
+                			#{dias}
+            			</p:dataList>
+						</p:outputPanel>
+					</p:dialog>
+
+
+					<h:outputText value="Inicio Horas Diarias"></h:outputText>
+					<p:inputMask
+						value="#{JornadaTrabalhoControl.jornadaTrabalho.inicioHorasDiaria }"
+						mask="99.99"></p:inputMask>
+					<h:outputText value="Termino Horas Diarias"></h:outputText>
+					<p:inputMask
+						value="#{JornadaTrabalhoControl.jornadaTrabalho.terminoHorasDiaria }"
+						mask="99.99"></p:inputMask>
+					<h:outputText value="Inicio Horas Intervalo"></h:outputText>
+					<p:inputMask
+						value="#{JornadaTrabalhoControl.jornadaTrabalho.inicioHorasIntervalo }"
+						mask="99.99"></p:inputMask>
+					<h:outputText value="Termino Horas Intervalo"></h:outputText>
+					<p:inputMask
+						value="#{JornadaTrabalhoControl.jornadaTrabalho.terminoHorasIntervalo }"
+						mask="99.99"></p:inputMask>
+					<h:outputText value="Horas Semanais"></h:outputText>
+					<p:inputMask
+						value="#{JornadaTrabalhoControl.jornadaTrabalho.horasSemanais }"
+						mask="99.99"></p:inputMask>
+					<h:outputText value="Horas Mensais"></h:outputText>
+					<p:inputMask
+						value="#{JornadaTrabalhoControl.jornadaTrabalho.horasMensais}"
+						mask="999.99"></p:inputMask>
+					<p:commandButton
+						actionListener="#{JornadaTrabalhoControl.confirmar }"
+						value="Confirmar/Alterar"
+						update="jornadaTrabalho, panel, displayItems"></p:commandButton>
+					<p:commandButton
+						actionListener="#{JornadaTrabalhoControl.excluir }"
+						value="Excluir" update="jornadaTrabalho, panel"></p:commandButton>
+				</h:panelGrid>
+			</p:panel>
+
+			<p:dataTable id="jornadaTrabalho"
+				value="#{JornadaTrabalhoControl.jornadasTrabalhos }" var="cont"
+				width="100%" emptyMessage="Sem registros">
+				<f:facet name="header">
+					<h:outputText value="Lista de Jornadas de Trabalho"></h:outputText>
+				</f:facet>
+				<p:column sortBy="#{cont.id }">
+					<f:facet name="header">
+						<h:outputText value="ID"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{cont.id }"></h:outputText>
+				</p:column>
+				<p:column sortBy="#{cont.descricao }">
+					<f:facet name="header">
+						<h:outputText value="Descrição"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{cont.descricao }"></h:outputText>
+				</p:column>
+				<p:column sortBy="#{cont.mostraDias }">
+					<f:facet name="header">
+						<h:outputText value="Dias da Semana"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{cont.mostraDias}"></h:outputText>
+				</p:column>
+				<p:column sortBy="#{cont.inicioHorasDiaria }">
+					<f:facet name="header">
+						<h:outputText value="Inicio Horas Diarias"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{cont.inicioHorasDiaria}"></h:outputText>
+				</p:column>
+				<p:column sortBy="#{cont.terminoHorasDiaria }">
+					<f:facet name="header">
+						<h:outputText value="Termino Horas Diarias"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{cont.terminoHorasDiaria}"></h:outputText>
+				</p:column>
+				<p:column sortBy="#{cont.inicioHorasIntervalo }">
+					<f:facet name="header">
+						<h:outputText value="Inicio Horas Intervalo"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{cont.inicioHorasIntervalo}"></h:outputText>
+				</p:column>
+				<p:column sortBy="#{cont.terminoHorasIntervalo }">
+					<f:facet name="header">
+						<h:outputText value="Termino Horas Intervalo"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{cont.terminoHorasIntervalo}"></h:outputText>
+				</p:column>
+				<p:column sortBy="#{cont.horasSemanais }">
+					<f:facet name="header">
+						<h:outputText value="Horas Semanais"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{cont.horasSemanais}"></h:outputText>
+				</p:column>
+				<p:column sortBy="#{cont.horasMensais }">
+					<f:facet name="header">
+						<h:outputText value="Horas Mensal"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{cont.horasMensais}"></h:outputText>
+				</p:column>
+			</p:dataTable>
+		</h:form>
 	</ui:define>
 </ui:composition>

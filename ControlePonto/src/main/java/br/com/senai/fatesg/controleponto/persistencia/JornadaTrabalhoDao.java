@@ -1,8 +1,8 @@
 package br.com.senai.fatesg.controleponto.persistencia;
 
 import br.com.ambientinformatica.jpa.persistencia.Persistencia;
-import br.com.senai.fatesg.controleponto.entidade.Contato;
+import br.com.senai.fatesg.controleponto.entidade.JornadaTrabalho;
 
-public interface ContatoDao extends Persistencia<Contato>{
+public interface JornadaTrabalhoDao extends Persistencia<JornadaTrabalho>{
 
 }
