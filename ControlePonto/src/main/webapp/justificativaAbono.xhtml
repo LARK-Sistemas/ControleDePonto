@@ -19,7 +19,11 @@
 				<!-- ANEXO DE DOCUMENTO -->
 				<h:outputText value="Anexar Documentos"></h:outputText>
 				<input type="file" value="#{JustificativaAbonoControl.justificativaAbono.anexoDocumentos}"/>
-				
+				<!-- <h:form enctype="multipart/form-data">
+    			<p:growl id="messages" showDetail="true" />
+    			<p:fileUpload value="#{JustificativaAbonoControl.justificativaAbono.anexoDocumento}" mode="simple" skinSimple="true"/>
+    			<p:commandButton value="Anexar Documento" ajax="false" actionListener="#{JustificativaAbonoControl.justificativaAbono.upload}" disabled="true" />
+				</h:form> -->
 				<!-- HORAS DIARIA INICIO -->
 				<h:outputText value="Hora Inicio"></h:outputText>
 				<p:inputMask value="#{JustificativaAbonoControl.justificativaAbono.horasDiariaInicio}" mask="99:99"></p:inputMask>
@@ -33,16 +37,11 @@
 				<h:outputText value="Data Termino"></h:outputText>
 				<p:inputMask value="#{JustificativaAbonoControl.justificativaAbono.dataTermino}" mask="99/99/9999"></p:inputMask>
 				<!-- STATUS -->
-				<label>Status</label>
-				<select>
-  				<option value="Aceito">Aceito</option>
-  				<option value="Recusado">Recusado</option>
-				</select>
-				<!-- <p:outputLabel for="status" value="Status:" />
-        		<p:selectOneMenu id="status" value="#{selectOneMenuView.console}" style="width:125px">
+				<p:outputLabel for="status" value="Status:" />
+        		<p:selectOneMenu id="status" value="#{JustificativaAbonoControl.justificativaAbono.status}">
             	<f:selectItem itemLabel="Selecione" itemValue="" />
             	<f:selectItem itemLabel="Aceito" itemValue="Aceito" />
-            	<f:selectItem itemLabel="Recusado" itemValue="Recusado" /> -->
+            	<f:selectItem itemLabel="Recusado" itemValue="Recusado" />
         		</p:selectOneMenu>
 				
 				<!-- BOTAO ADICIONAR -->

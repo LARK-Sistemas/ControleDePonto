@@ -22,7 +22,7 @@ public class JustificativaAbonoControl {
 	
 	@Autowired
 	private JustificativaAbonoDao justificativaAbonoDao;
-	
+	 
 	private List<JustificativaAbono> justificativaAbonos = new ArrayList<JustificativaAbono>();
 	
 	@PostConstruct
@@ -47,7 +47,6 @@ public class JustificativaAbonoControl {
 		   UtilFaces.addMensagemFaces(e);
 		}
 	}
-	
 	
 	public JustificativaAbono getJustificativaAbono() {
 		return justificativaAbono;
