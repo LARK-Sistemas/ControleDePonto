@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Scope;
 import br.com.ambientinformatica.ambientjsf.util.UtilFaces;
 import br.com.senai.fatesg.controleponto.entidade.JornadaTrabalho;
 import br.com.senai.fatesg.controleponto.persistencia.JornadaTrabalhoDao;
-//import br.com.senai.fatesg.primefaces.entidade.Contato;
+
 
 @Named("JornadaTrabalhoControl")
 @Scope("conversation")
@@ -53,7 +53,6 @@ public class JornadaTrabalhoControl {
 
 	public void confirmar(ActionEvent evt) {
 		try {
-			// jornadaTrabalho.setDiasDaSemana(checkboxDiasDaSemana.naoSeiNome());
 			jornadaTrabalho.mostraDias();
 			jornadaTrabalhoDao.alterar(jornadaTrabalho);
 			listar(evt);
@@ -65,8 +64,6 @@ public class JornadaTrabalhoControl {
 	
 	public void excluir(ActionEvent evt) {
 		try {
-			// jornadaTrabalho.setDiasDaSemana(checkboxDiasDaSemana.naoSeiNome());
-			//jornadaTrabalho.mostraDias();
 			jornadaTrabalhoDao.excluirPorId(jornadaTrabalho.getId());
 			listar(evt);
 			jornadaTrabalho = new JornadaTrabalho();

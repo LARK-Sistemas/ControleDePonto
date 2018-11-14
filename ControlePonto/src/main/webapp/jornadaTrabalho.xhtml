@@ -10,13 +10,14 @@
 		<h:form>
 			<p:panel header="Cadastro Jornada de Trabalho" id="panel">
 				<h:panelGrid columns="2">
-					<h:outputLabel value="ID: "/>
+					<h:outputLabel value="ID: " />
 					<p:inputText id="id"
 						value="#{JornadaTrabalhoControl.jornadaTrabalho.id }"
 						required="false" label="ID"></p:inputText>
 					<p:messages id="messages" showDetail="true" />
-					<p:watermark for="id" value="Usado P/ Excluir e Alterar" id="watermark" />
-					
+					<p:watermark for="id" value="Usado P/ Excluir e Alterar"
+						id="watermark" />
+
 
 					<h:outputText value="Descrição"></h:outputText>
 					<p:inputText

@@ -1,9 +1,6 @@
 package br.com.senai.fatesg.controleponto.entidade;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,10 +17,7 @@ public class JornadaTrabalho {
 	private Integer id;
 
 	private String descricao;
-
-	//private String[] selecioneDiasSemana;
-
-	//private List<String> diasSemana;
+	
 	private String[] diasDaSemana ;
 
 	private double inicioHorasDiaria;
@@ -130,11 +124,5 @@ public class JornadaTrabalho {
 	public void setHorasMensais(double horasMensais) {
 		this.horasMensais = horasMensais;
 	}
-
-	/*@Override
-	public String toString() {
-		return "JornadaTrabalho [selecioneDiasSemana=" + Arrays.toString(selecioneDiasSemana) + "]";
-	}*/
-	
 	
 }

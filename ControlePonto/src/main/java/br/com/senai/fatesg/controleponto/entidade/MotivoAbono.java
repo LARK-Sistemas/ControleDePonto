@@ -1,6 +1,6 @@
 package br.com.senai.fatesg.controleponto.entidade;
 
-//import java.sql.Date;
+
 import java.util.Date;
 
 

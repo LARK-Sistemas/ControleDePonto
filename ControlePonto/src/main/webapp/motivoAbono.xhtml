@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://www.ambientinformatica.com.br/jsf2"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="corpo">
+		<h:form>
+			<p:panel header="Cadastro Motivo de Abono" id="panel">
+				<h:panelGrid columns="2">
+					<h:outputLabel value="ID: "/>
+					<p:inputText id="id"
+						value="#{MotivoAbonoControl.motivoAbono.id }"
+						required="false" label="ID"></p:inputText>
+					<p:messages id="messages" showDetail="true" />
+					<p:watermark for="id" value="Usado P/ Excluir e Alterar" id="watermark" />
+					
+
+					<h:outputText value="Descrição"></h:outputText>
+					<p:inputText
+						value="#{MotivoAbonoControl.motivoAbono.descricao }"></p:inputText>
+					<h:outputLabel for="multiple" value="Descrição " />
+					
+					<h:outputText value="Data Inicio"></h:outputText>
+					<p:inputMask
+						value="#{MotivoAbonoControl.motivoAbono.inicioHorasDiaria }"
+						mask="99.99"></p:inputMask>
+					<h:outputText value="Termino Horas Diarias"></h:outputText>
+					<p:inputMask
+						value="#{MotivoAbonoControl.motivoAbono.dataTermino }"
+						mask="99.99"></p:inputMask>
+					<h:outputText value="Inicio Horas Intervalo"></h:outputText>
+					
+					<p:commandButton
+						actionListener="#{MotivoAbonoControl.confirmar }"
+						value="Confirmar/Alterar"
+						update="motivoAbono, panel"></p:commandButton>
+					<p:commandButton
+						actionListener="#{MotivoAbonoControl.excluir }"
+						value="Excluir" update="motivoAbono, panel"></p:commandButton>
+				</h:panelGrid>
+			</p:panel>
+
+			<p:dataTable id="motivoAbono"
+				value="#{MotivoAbonoControl.motivoAbonos }" var="cont"
+				width="100%" emptyMessage="Sem registros">
+				<f:facet name="header">
+					<h:outputText value="Lista de Motivos de Abonos"></h:outputText>
+				</f:facet>
+				<p:column sortBy="#{cont.id }">
+					<f:facet name="header">
+						<h:outputText value="ID"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{cont.id }"></h:outputText>
+				</p:column>
+				<p:column sortBy="#{cont.descricao }">
+					<f:facet name="header">
+						<h:outputText value="Descrição"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{cont.descricao }"></h:outputText>
+				</p:column>
+				<p:column sortBy="#{cont.dataInicio }">
+					<f:facet name="header">
+						<h:outputText value="Data Inicio"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{cont.dataInicio}"></h:outputText>
+				</p:column>
+				<p:column sortBy="#{cont.dataTermino }">
+					<f:facet name="header">
+						<h:outputText value="Data Termino"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{cont.dataTermino}"></h:outputText>
+				</p:column>
+				
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

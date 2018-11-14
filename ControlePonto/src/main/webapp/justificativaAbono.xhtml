@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="corpo">
+
+		<!-- CADASTRO JUSTIFICATIVAS DE ABONO -->
+		<p:panel header="Justificativa de Abono" id="panel">
+			<h:panelGrid columns="1">
+				<!-- TITULO -->
+				<h:outputText value="Título"></h:outputText>
+				<p:inputText value="#{JustificativaAbonoControl.justificativaAbono.titulo}" maxlength="50"></p:inputText>
+				<!-- DESCRICAO -->
+				<h:outputText value="Descrição"></h:outputText>
+				<p:inputTextarea rows="10" cols="50" value="#{JustificativaAbonoControl.justificativaAbono.descricao}" maxlength="254"></p:inputTextarea>
+				<!-- ANEXO DE DOCUMENTO -->
+				<h:outputText value="Anexar Documentos"></h:outputText>
+				<input type="file" value="#{JustificativaAbonoControl.justificativaAbono.anexoDocumentos}"/>
+				<!-- HORAS DIARIA INICIO -->
+				<h:outputText value="Hora Inicio"></h:outputText>
+				<p:inputMask value="#{JustificativaAbonoControl.justificativaAbono.horasDiariaInicio}" mask="99:99"></p:inputMask>
+				<!-- HORAS DIARIA TERMINO -->
+				<h:outputText value="Hora Término"></h:outputText>
+				<p:inputMask value="#{JustificativaAbonoControl.justificativaAbono.horasDiariaTermino}" mask="99:99"></p:inputMask>
+				<!-- DATA DE INICIO -->
+				<h:outputText value="Data Inicio"></h:outputText>
+				<p:inputMask value="#{JustificativaAbonoControl.justificativaAbono.dataInicio}" mask="99/99/9999"></p:inputMask>
+				<!-- DATA TERMINO -->
+				<h:outputText value="Data Termino"></h:outputText>
+				<p:inputMask value="#{JustificativaAbonoControl.justificativaAbono.dataTermino}" mask="99/99/9999"></p:inputMask>
+				<!-- STATUS -->
+				<p:outputLabel for="status" value="Status:" />
+        		<p:selectOneMenu id="status" value="#{JustificativaAbonoControl.justificativaAbono.status}">
+            	<f:selectItem itemLabel="Selecione" itemValue="" />
+            	<f:selectItem itemLabel="Aceito" itemValue="Aceito" />
+            	<f:selectItem itemLabel="Recusado" itemValue="Recusado" />
+        		</p:selectOneMenu>
+				
+				<!-- BOTAO ADICIONAR -->
+				<p:commandButton actionListener="#{JustificativaAbonoControl.incluir }"	value="Adicionar" update="justificativaAbono, panel"></p:commandButton>
+			</h:panelGrid>
+		</p:panel>
+		
+
+		<!-- TABELA DE JUSTIFICATIVAS DE ABONO -->
+		<p:dataTable id="justificativaAbono" value="#{JustificativaAbonoControl.justificativaAbonos }" var="abono" width="100%" emptyMessage="Sem registros">
+			<f:facet name="header">
+				<h:outputText value="Lista de Justificativas de Abono"></h:outputText>
+			</f:facet>
+			<!-- TITULO -->
+			<p:column sortBy="#{abono.titulo}">
+				<f:facet name="header">
+					<h:outputText value="Título"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{abono.titulo}"></h:outputText>
+			</p:column>
+			<!-- DESCRICAO -->
+			<p:column sortBy="#{abono.descricao}">
+				<f:facet name="header">
+					<h:outputText value="Descrição"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{abono.descricao}"></h:outputText>
+			</p:column>
+			<!-- ANEXO DE DOCUMENTO -->
+			<p:column sortBy="#{abono.anexoDocumentos}">
+				<f:facet name="header">
+					<h:outputText value="Anexos"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{abono.anexoDocumentos}"></h:outputText>
+			</p:column>
+			<!-- HORA DIARIA INICIO -->
+			<p:column sortBy="#{abono.horasDiariaInicio}">
+				<f:facet name="header">
+					<h:outputText value="Hora Início"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{abono.horasDiariaInicio}"></h:outputText>
+			</p:column>
+			<!-- HORA DIARIA TERMINO -->
+			<p:column sortBy="#{abono.horasDiariaTermino}">
+				<f:facet name="header">
+					<h:outputText value="Hora Término"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{abono.horasDiariaTermino}"></h:outputText>
+			</p:column>
+			<!-- DATA INICIO -->
+			<p:column sortBy="#{abono.dataInicio}">
+				<f:facet name="header">
+					<h:outputText value="Data de Inicio"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{abono.dataInicio}"></h:outputText>
+			</p:column>
+			<!-- DATA TERMINO -->
+			<p:column sortBy="#{abono.dataTermino}">
+				<f:facet name="header">
+					<h:outputText value="Data de Termino"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{abono.dataTermino}"></h:outputText>
+			</p:column>
+			<!-- STATUS -->
+			<p:column sortBy="#{abono.status}">
+				<f:facet name="header">
+					<h:outputText value="Status"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{abono.status}"></h:outputText>
+			</p:column>
+		</p:dataTable>
+		
+		<!-- BOTAO VOLTAR -->
+		<a href="inicio.jspx">Voltar ao inicio</a>
+	</ui:define>
+</ui:composition>
