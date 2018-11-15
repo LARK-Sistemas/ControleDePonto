@@ -17,7 +17,7 @@ import br.com.senai.fatesg.controleponto.persistencia.MotivoAbonoDao;
 @Named("MotivoAbonoControl")
 @Scope("conversation")
 public class MotivoAbonoControl {
-
+	
 	private MotivoAbono motivoAbono = new MotivoAbono();
 	
 	@Autowired
@@ -57,4 +57,30 @@ public class MotivoAbonoControl {
 			UtilFaces.addMensagemFaces(e);
 		}
 	}
+
+	public MotivoAbono getMotivoAbono() {
+		return motivoAbono;
+	}
+
+	public void setMotivoAbono(MotivoAbono motivoAbono) {
+		this.motivoAbono = motivoAbono;
+	}
+
+	public MotivoAbonoDao getMotivoAbonoDao() {
+		return MotivoAbonoDao;
+	}
+
+	public void setMotivoAbonoDao(MotivoAbonoDao motivoAbonoDao) {
+		MotivoAbonoDao = motivoAbonoDao;
+	}
+
+	public List<MotivoAbono> getMotivosAbonos() {
+		return motivosAbonos;
+	}
+
+	public void setMotivosAbonos(List<MotivoAbono> motivosAbonos) {
+		this.motivosAbonos = motivosAbonos;
+	}
+	
+	
 }

@@ -24,7 +24,7 @@ import br.com.senai.fatesg.controleponto.persistencia.JornadaTrabalhoDao;
 public class JornadaTrabalhoControl {
 
 	private JornadaTrabalho jornadaTrabalho = new JornadaTrabalho();
-
+	
 	@Autowired
 	private JornadaTrabalhoDao jornadaTrabalhoDao;
 

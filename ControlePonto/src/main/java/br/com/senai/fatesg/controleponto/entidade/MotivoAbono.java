@@ -20,8 +20,10 @@ public class MotivoAbono {
 	
 	private String descricao;
 	
-	private Date dataInicio;
-	private Date dataTermino;
+	private String dataInicio;
+	
+	private String dataTermino;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -34,16 +36,16 @@ public class MotivoAbono {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Date getDataInicio() {
+	public String getDataInicio() {
 		return dataInicio;
 	}
-	public void setDataInicio(Date dataInicio) {
+	public void setDataInicio(String dataInicio) {
 		this.dataInicio = dataInicio;
 	}
-	public Date getDataTermino() {
+	public String getDataTermino() {
 		return dataTermino;
 	}
-	public void setDataTermino(Date dataTermino) {
+	public void setDataTermino(String dataTermino) {
 		this.dataTermino = dataTermino;
 	}
 	

@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-//import br.com.senai.fatesg.controleponto.view.CheckboxDiasDaSemana;
 
 @Entity
 public class JornadaTrabalho {
