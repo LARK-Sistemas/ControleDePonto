@@ -32,6 +32,32 @@ public class JornadaTrabalho {
 	private double horasMensais;
 	
 	private String mostraDias = "";
+	
+	
+
+	public JornadaTrabalho() {
+		super();
+	}
+
+	
+	
+	public JornadaTrabalho(Integer id, String descricao, String[] diasDaSemana, double inicioHorasDiaria,
+			double terminoHorasDiaria, double inicioHorasIntervalo, double terminoHorasIntervalo, double horasSemanais,
+			double horasMensais, String mostraDias) {
+		super();
+		this.id = id;
+		this.descricao = descricao;
+		this.diasDaSemana = diasDaSemana;
+		this.inicioHorasDiaria = inicioHorasDiaria;
+		this.terminoHorasDiaria = terminoHorasDiaria;
+		this.inicioHorasIntervalo = inicioHorasIntervalo;
+		this.terminoHorasIntervalo = terminoHorasIntervalo;
+		this.horasSemanais = horasSemanais;
+		this.horasMensais = horasMensais;
+		this.mostraDias = mostraDias;
+	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -71,7 +97,6 @@ public class JornadaTrabalho {
 	}
 
 	public void setDiasDaSemana(String[] diasDaSemana) {
-		System.out.println("aqui " + diasDaSemana);
 		this.diasDaSemana = diasDaSemana;
 
 	}

@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
 
-import org.primefaces.event.SelectEvent;
-import org.primefaces.event.UnselectEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
@@ -22,6 +20,7 @@ import br.com.senai.fatesg.controleponto.persistencia.JornadaTrabalhoDao;
 @Named("JornadaTrabalhoControl")
 @Scope("conversation")
 public class JornadaTrabalhoControl {
+	
 
 	private JornadaTrabalho jornadaTrabalho = new JornadaTrabalho();
 	
@@ -62,6 +61,42 @@ public class JornadaTrabalhoControl {
 		}
 	}
 	
+	public void confirmarTeste(JornadaTrabalho jornada) {
+		try {
+			jornadaTrabalho.mostraDias();
+			jornadaTrabalhoDao.alterar(jornada);
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+	
+	public void incluirJornada(JornadaTrabalho jornada) {
+		try {
+			System.out.println("Jornada é: "+ jornada.getDescricao());
+			jornadaTrabalhoDao.incluir(jornada);
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e.getLocalizedMessage());
+		}
+	}
+	
+	public void alterar(JornadaTrabalho jornada) {
+		try {
+			System.out.println("Jornada é: "+ jornada.getDescricao());
+			jornadaTrabalhoDao.alterar(jornada);
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e.getLocalizedMessage());
+		}
+	}
+	
+	public JornadaTrabalho consultar(JornadaTrabalho jornada) {
+		try {
+			return jornadaTrabalho = jornadaTrabalhoDao.consultar(jornada);
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+		return jornadaTrabalho;
+	}
+	
 	public void excluir(ActionEvent evt) {
 		try {
 			jornadaTrabalhoDao.excluirPorId(jornadaTrabalho.getId());
@@ -72,9 +107,18 @@ public class JornadaTrabalhoControl {
 		}
 	}
 	
+	public void excluir(JornadaTrabalho jornada) {
+		try {
+			jornadaTrabalhoDao.excluirPorId(jornada.getId());
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+	
 	public void listar(ActionEvent evt) {
 		try {
 			jornadasTrabalhos = jornadaTrabalhoDao.listar();
+			
 		} catch (Exception e) {
 			UtilFaces.addMensagemFaces(e);
 		}

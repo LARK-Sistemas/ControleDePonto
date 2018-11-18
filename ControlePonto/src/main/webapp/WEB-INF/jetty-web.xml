@@ -17,6 +17,18 @@
         <Arg>java:comp/env/jdbc/ControlePonto</Arg>
         <Arg>
             <Ref id="ControlePonto"/>
+
+        <Set name="url"><SystemProperty name="cotemais.jdbc.url" default="jdbc:postgresql://localhost/ControlePonto"/></Set>
+        <Set name="username"><SystemProperty name="cotemais.jdbc.user" default="postgres"/></Set>
+        <Set name="password"><SystemProperty name="cotemais.jdbc.password" default="123456"/></Set>
+    </New>
+        
+    <New id="kyklos_resource" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg/>
+        <Arg>java:comp/env/jdbc/ControlePonto</Arg>
+        <Arg>
+            <Ref id="ControlePonto"/>
+
         </Arg>
     </New>
     
