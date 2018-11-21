@@ -1,6 +1,8 @@
 package br.com.senai.fatesg.controleponto.entidade;
 
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,13 +21,13 @@ public class JornadaTrabalho {
 	
 	private String[] diasDaSemana ;
 
-	private double inicioHorasDiaria;
+	private Date inicioHorasDiaria;
 
-	private double terminoHorasDiaria;
+	private Date terminoHorasDiaria;
 
-	private double inicioHorasIntervalo;
+	private Date inicioHorasIntervalo;
 
-	private double terminoHorasIntervalo;
+	private Date terminoHorasIntervalo;
 
 	private double horasSemanais;
 
@@ -37,12 +39,17 @@ public class JornadaTrabalho {
 
 	public JornadaTrabalho() {
 		super();
+		
 	}
-
+	public JornadaTrabalho(Integer id) {
+		super();
+		this.id = id;		
+	}
 	
 	
-	public JornadaTrabalho(Integer id, String descricao, String[] diasDaSemana, double inicioHorasDiaria,
-			double terminoHorasDiaria, double inicioHorasIntervalo, double terminoHorasIntervalo, double horasSemanais,
+	
+	public JornadaTrabalho(Integer id, String descricao, String[] diasDaSemana, Date inicioHorasDiaria,
+			Date terminoHorasDiaria, Date inicioHorasIntervalo, Date terminoHorasIntervalo, double horasSemanais,
 			double horasMensais, String mostraDias) {
 		super();
 		this.id = id;
@@ -62,7 +69,7 @@ public class JornadaTrabalho {
 	public Integer getId() {
 		return id;
 	}
-
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -101,35 +108,35 @@ public class JornadaTrabalho {
 
 	}
 	
-	public double getInicioHorasDiaria() {
+	public Date getInicioHorasDiaria() {
 		return inicioHorasDiaria;
 	}
 
-	public void setInicioHorasDiaria(double inicioHorasDiaria) {
+	public void setInicioHorasDiaria(Date inicioHorasDiaria) {
 		this.inicioHorasDiaria = inicioHorasDiaria;
 	}
 
-	public double getTerminoHorasDiaria() {
+	public Date getTerminoHorasDiaria() {
 		return terminoHorasDiaria;
 	}
 
-	public void setTerminoHorasDiaria(double terminoHorasDiaria) {
+	public void setTerminoHorasDiaria(Date terminoHorasDiaria) {
 		this.terminoHorasDiaria = terminoHorasDiaria;
 	}
 
-	public double getInicioHorasIntervalo() {
+	public Date getInicioHorasIntervalo() {
 		return inicioHorasIntervalo;
 	}
 
-	public void setInicioHorasIntervalo(double inicioHorasIntervalo) {
+	public void setInicioHorasIntervalo(Date inicioHorasIntervalo) {
 		this.inicioHorasIntervalo = inicioHorasIntervalo;
 	}
 
-	public double getTerminoHorasIntervalo() {
+	public Date getTerminoHorasIntervalo() {
 		return terminoHorasIntervalo;
 	}
 
-	public void setTerminoHorasIntervalo(double terminoHorasIntervalo) {
+	public void setTerminoHorasIntervalo(Date terminoHorasIntervalo) {
 		this.terminoHorasIntervalo = terminoHorasIntervalo;
 	}
 
