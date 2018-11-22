@@ -49,10 +49,7 @@
 				<p:inputMask value="#{FuncionarioControl.funcionario.celular }" mask="(99) 99999-9999"></p:inputMask>
 				
 				<h:outputText value="Banco Horas"></h:outputText>				
-				<p:selectOneMenu id="bancoHoras" value="#{FuncionarioControl.funcionario.bancoHoras}" style="width: 195px">
-					<f:selectItem itemLabel="Sim" itemValue="Sim" />
-		            <f:selectItem itemLabel="Não" itemValue="Não" />		            
-	           </p:selectOneMenu>
+				<p:inputText value="#{FuncionarioControl.funcionario.bancoHoras }"></p:inputText>
 				
 				<h:outputText value="Jornada de Trabalho"></h:outputText>				
 				<p:inputMask value="#{FuncionarioControl.funcionario.jornadaTrabalho }" mask="99"></p:inputMask>
@@ -61,17 +58,7 @@
 				<p:inputText value="#{FuncionarioControl.funcionario.rfid }"></p:inputText>
 				
 				<h:outputText value="Papel"></h:outputText>
-				<p:selectOneMenu id="papel" value="#{FuncionarioControl.funcionario.papel}" style="width: 195px">
-					<f:selectItem itemLabel="Operacional" itemValue="Operacional" />
-		            <f:selectItem itemLabel="Supervisor" itemValue="Supervisor" />
-		            <f:selectItem itemLabel="RH" itemValue="RH" />
-	           </p:selectOneMenu>
-	           
-	           <h:outputText value="Status"></h:outputText>
-				<p:selectOneMenu id="status" value="#{FuncionarioControl.funcionario.status}" style="width: 195px">
-					<f:selectItem itemLabel="Situação normal" itemValue="Situação normal" />
-		            <f:selectItem itemLabel="Desligado" itemValue="Desligado" />		            
-	           </p:selectOneMenu>
+				<p:inputText value="#{FuncionarioControl.funcionario.papel }"></p:inputText>
 				
 				<p:commandButton actionListener="#{FuncionarioControl.confirmar }" value="Incluir/Alterar" update="funcionarios, panel"></p:commandButton>
 				<p:commandButton actionListener="#{FuncionarioControl.excluir }" value="Excluir" update="funcionarios, panel"></p:commandButton>
@@ -144,12 +131,6 @@
 					<h:outputText value="Papel"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{func.papel }"></h:outputText>
-			</p:column>
-			<p:column sortBy="#{func.status }">
-				<f:facet name="header">
-					<h:outputText value="Status"></h:outputText>
-				</f:facet>
-				<h:outputText value="#{func.status }"></h:outputText>
 			</p:column>
 			
 		</p:dataTable>

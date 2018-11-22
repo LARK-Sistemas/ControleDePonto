@@ -42,6 +42,8 @@ public class Funcionario {
 	private String rfid;
 	
 	private String papel;
+	
+	private String status;
 
 	public Integer getId() {
 		return id;
@@ -171,6 +173,14 @@ public class Funcionario {
 
 	public void setPapel(String papel) {
 		this.papel = papel;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 }
