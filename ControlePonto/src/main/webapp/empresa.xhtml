@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://www.ambientinformatica.com.br/jsf2"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="corpo">
+		<p:panel header="Dados da Empresa" id="panel">
+		<!-- BOTAO GERAR EMPRESA -->
+			<p:commandButton actionListener="#{EmpresaControl.gerarEmpresa }" value="Gerar empresa" update="empresa, panel"></p:commandButton>
+			<h:panelGrid columns="1">
+				<!-- ID -->
+				<h:outputLabel value="ID:" />
+				<p:inputText id="id" required="false" label="id" value="#{EmpresaControl.empresa.id }"></p:inputText>
+				<p:watermark for="id" value="Usado para Alterar" />
+				<p:message for="id" showDetail="true" />
+				<!-- RAZÃO SOCIAL -->
+				<h:outputText value="Razão Social"></h:outputText>
+				<p:inputText value="#{EmpresaControl.empresa.razaoSocial}" maxlength="50"></p:inputText>
+				<!-- NOME FANTASIA -->
+				<h:outputText value="Nome Fantasia"></h:outputText>
+				<p:inputText value="#{EmpresaControl.empresa.nomeFantasia}" maxlength="50"></p:inputText>
+				<!-- LOGRADOURO -->
+				<h:outputText value="Logradouro"></h:outputText>
+				<p:inputText value="#{EmpresaControl.empresa.logradouro}" maxlength="40"></p:inputText>
+				<!-- NUMERO -->
+				<h:outputText value="Numero"></h:outputText>
+				<p:inputText value="#{EmpresaControl.empresa.numero}" maxlength="6"></p:inputText>
+				<!-- COMPLEMENTO -->
+				<h:outputText value="Complemento"></h:outputText>
+				<p:inputText value="#{EmpresaControl.empresa.complemento}" maxlength="40"></p:inputText>
+				<!-- BAIRRO -->
+				<h:outputText value="Bairro"></h:outputText>
+				<p:inputText value="#{EmpresaControl.empresa.bairro}" maxlength="30"></p:inputText>
+				<!-- CIDADE -->
+				<h:outputText value="Cidade"></h:outputText>
+				<p:inputText value="#{EmpresaControl.empresa.cidade}" maxlength="30"></p:inputText>
+				<!-- ESTADO -->
+				<h:outputText value="Estado"></h:outputText>
+				<p:inputText value="#{EmpresaControl.empresa.estado}" maxlength="20"></p:inputText>
+				<!-- CEP -->
+				<h:outputText value="CEP"></h:outputText>
+				<p:inputMask value="#{EmpresaControl.empresa.cep}" mask="99.999-999"></p:inputMask>
+				<!-- INSCRIÇÃO ESTADUAL -->
+				<h:outputText value="Inscricao Estadual"></h:outputText>
+				<p:inputText value="#{EmpresaControl.empresa.inscricaoEstadual}" maxlength="20"></p:inputText>
+				<!-- EMAIL -->
+				<h:outputText value="Email"></h:outputText>
+				<p:inputText value="#{EmpresaControl.empresa.email}" maxlength="40"></p:inputText>
+				<!-- TELEFONE -->
+				<h:outputText value="Telefone"></h:outputText>
+				<p:inputMask value="#{EmpresaControl.empresa.telefone}" mask="(99)9999-9999"></p:inputMask>
+				<!-- SITE -->
+				<h:outputText value="Site"></h:outputText>
+				<p:inputText value="#{EmpresaControl.empresa.site}" maxlength="40"></p:inputText>
+				<!-- REDE SOCIAL -->
+				<h:outputText value="Rede Social"></h:outputText>
+				<p:inputText value="#{EmpresaControl.empresa.redeSocial}" maxlength="40"></p:inputText>
+				<!-- PORCENTAGEM HORAS EXTRA -->
+				<h:outputText value="Porcentagem Horas Extra"></h:outputText>
+				<p:inputText value="#{EmpresaControl.empresa.porcentagemHorasExtras}" maxlength="2"></p:inputText>
+				
+				<!-- BOTAO ALTERAR -->
+				<p:commandButton actionListener="#{EmpresaControl.confirmar }" value="Alterar" update="empresa, panel"></p:commandButton>
+			</h:panelGrid>
+		</p:panel>
+
+			<!-- TABELA DA EMPRESA -->
+			<p:dataTable id="empresa" value="#{EmpresaControl.empresas}" var="emp" width="100%" emptyMessage="Sem registros">
+			<f:facet name="header">
+				<h:outputText value="Dados da Empresa"></h:outputText>
+			</f:facet>
+			<!-- ID -->
+			<p:column sortBy="#{emp.id}">
+				<f:facet name="header">
+					<h:outputText value="ID"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.id}"></h:outputText>
+			</p:column>
+			<!-- CNPJ -->
+			<p:column sortBy="#{emp.cnpj}">
+				<f:facet name="header">
+					<h:outputText value="CNPJ"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.cnpj}"></h:outputText>
+			</p:column>
+			<!-- RAZÃO SOCIAL -->
+			<p:column sortBy="#{emp.razaoSocial}">
+				<f:facet name="header">
+					<h:outputText value="Razao Social"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.razaoSocial}"></h:outputText>
+			</p:column>
+			<!-- NOME FANTASIA -->
+			<p:column sortBy="#{emp.nomeFantasia}">
+				<f:facet name="header">
+					<h:outputText value="Nome Fantasia"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.nomeFantasia}"></h:outputText>
+			</p:column>
+			<!-- LOGRADOURO -->
+			<p:column sortBy="#{emp.logradouro}">
+				<f:facet name="header">
+					<h:outputText value="Logradouro"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.logradouro}"></h:outputText>
+			</p:column>
+			<!-- NUMERO -->
+			<p:column sortBy="#{emp.numero}">
+				<f:facet name="header">
+					<h:outputText value="Numero"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.numero}"></h:outputText>
+			</p:column>
+			<!-- COMPLEMENTO -->
+			<p:column sortBy="#{emp.complemento}">
+				<f:facet name="header">
+					<h:outputText value="Complemento"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.complemento}"></h:outputText>
+			</p:column>
+			<!-- BAIRRO -->
+			<p:column sortBy="#{emp.bairro}">
+				<f:facet name="header">
+					<h:outputText value="Bairro"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.bairro}"></h:outputText>
+			</p:column>
+			<!-- CIDADE -->
+			<p:column sortBy="#{emp.cidade}">
+				<f:facet name="header">
+					<h:outputText value="Cidade"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.cidade}"></h:outputText>
+			</p:column>
+			<!-- ESTADO -->
+			<p:column sortBy="#{emp.estado}">
+				<f:facet name="header">
+					<h:outputText value="Estado"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.estado}"></h:outputText>
+			</p:column>
+			<!-- CEP -->
+			<p:column sortBy="#{emp.cep}">
+				<f:facet name="header">
+					<h:outputText value="CEP"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.cep}"></h:outputText>
+			</p:column>
+			<!-- INSCRIÇÃO ESTADUAL -->
+			<p:column sortBy="#{emp.inscricaoEstadual}">
+				<f:facet name="header">
+					<h:outputText value="Inscricao Estadual"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.inscricaoEstadual}"></h:outputText>
+			</p:column>
+			<!-- EMAIL -->
+			<p:column sortBy="#{emp.email}">
+				<f:facet name="header">
+					<h:outputText value="Email"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.email}"></h:outputText>
+			</p:column>
+			<!-- TELEFONE -->
+			<p:column sortBy="#{emp.telefone}">
+				<f:facet name="header">
+					<h:outputText value="Telefone"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.telefone}"></h:outputText>
+			</p:column>
+			<!-- Site -->
+			<p:column sortBy="#{emp.site}">
+				<f:facet name="header">
+					<h:outputText value="Site"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.site}"></h:outputText>
+			</p:column>
+			<!-- REDE SOCIAL -->
+			<p:column sortBy="#{emp.redesocial}">
+				<f:facet name="header">
+					<h:outputText value="Rede social"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.redeSocial}"></h:outputText>
+			</p:column>
+			<!-- PORCENTAGEM HORAS EXTRAS -->
+			<p:column sortBy="#{emp.porcentagemHorasExtras}">
+				<f:facet name="header">
+					<h:outputText value="Porcentagem Horas extras"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{emp.porcentagemHorasExtras}"></h:outputText>
+			</p:column>
+		</p:dataTable>
+	</ui:define>
+</ui:composition>

@@ -1,14 +1,12 @@
 package br.com.senai.fatesg.controleponto.entidade;
 
-/*import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;*/
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.SequenceGenerator;
 
-//import org.primefaces.model.UploadedFile;
 
 @Entity
 public class JustificativaAbono {
@@ -20,7 +18,9 @@ public class JustificativaAbono {
 	
 	private String titulo;
 	private String descricao;
-	private String anexoDocumentos;
+	//@Lob
+	//private byte[] anexoDocumento;
+	private String anexoDocumento;
 	private String horasDiariaInicio;
 	private String horasDiariaTermino;
 	private String dataInicio;
@@ -31,7 +31,8 @@ public class JustificativaAbono {
 	public Integer getId() {return id;}									//ID
 	public String getTitulo() {return titulo;}							//TITULO
 	public String getDescricao() {return descricao;}					//DESCRICAO
-	public String getAnexoDocumentos(){return anexoDocumentos;}
+	public String getanexoDocumento() {return anexoDocumento;}
+	//public byte[] getAnexoDocumento(){return anexoDocumento;}			//ANEXO DOCUMENTOS
 	public String getHorasDiariaInicio() {return horasDiariaInicio;}	//HORAS DIARIAS INICIO
 	public String getHorasDiariaTermino() {return horasDiariaTermino;}	//HORAS DIARIAS TERMINO
 	public String getDataInicio() {return dataInicio;}					//DATA INICIO
@@ -42,7 +43,8 @@ public class JustificativaAbono {
 	public void setId(Integer id) {this.id = id;}																	//ID
 	public void setTitulo(String titulo) {this.titulo = titulo;}													//TITULO
 	public void setDescricao(String descricao) {this.descricao = descricao;}										//DESCRICAO
-	public void setAnexoDocumentos(String anexoDocumentos) {this.anexoDocumentos = anexoDocumentos;}		    //ANEXO DOCUMENTOS
+	public void setAnexoDocumento(String anexoDocumento) {this.anexoDocumento = anexoDocumento;}
+	//public void setAnexoDocumento(byte[] anexoDocumento) {this.anexoDocumento = anexoDocumento;}		   			//ANEXO DOCUMENTOS
 	public void setHorasDiariaInicio(String horasDiariaInicio) {this.horasDiariaInicio = horasDiariaInicio;}		//HORAS DIARIAS INICIO
 	public void setHorasDiariaTermino(String horasDiariaTermino) {this.horasDiariaTermino = horasDiariaTermino;}	//HORAS DIARIAS TERMINO
 	public void setDataInicio(String dataInicio) {this.dataInicio = dataInicio;}									//DATA INICIO

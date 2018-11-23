@@ -18,7 +18,7 @@
 				<p:inputTextarea rows="10" cols="50" value="#{JustificativaAbonoControl.justificativaAbono.descricao}" maxlength="254"></p:inputTextarea>
 				<!-- ANEXO DE DOCUMENTO -->
 				<h:outputText value="Anexar Documentos"></h:outputText>
-				<input type="file" value="#{JustificativaAbonoControl.justificativaAbono.anexoDocumentos}"/>
+    			<p:fileUpload value="#{JustificativaAbonoControl.justificativaAbono.anexoDocumento}" mode="simple"/>
 				<!-- HORAS DIARIA INICIO -->
 				<h:outputText value="Hora Inicio"></h:outputText>
 				<p:inputMask value="#{JustificativaAbonoControl.justificativaAbono.horasDiariaInicio}" mask="99:99"></p:inputMask>
@@ -34,13 +34,13 @@
 				<!-- STATUS -->
 				<p:outputLabel for="status" value="Status:" />
         		<p:selectOneMenu id="status" value="#{JustificativaAbonoControl.justificativaAbono.status}">
-            	<f:selectItem itemLabel="Selecione" itemValue="" />
-            	<f:selectItem itemLabel="Aceito" itemValue="Aceito" />
-            	<f:selectItem itemLabel="Recusado" itemValue="Recusado" />
+            	<f:selectItem itemLabel="Selecione" itemValue=""/>
+            	<f:selectItem itemLabel="Aceito" itemValue="Aceito"/>
+            	<f:selectItem itemLabel="Recusado" itemValue="Recusado"/>
         		</p:selectOneMenu>
 				
 				<!-- BOTAO ADICIONAR -->
-				<p:commandButton actionListener="#{JustificativaAbonoControl.incluir }"	value="Adicionar" update="justificativaAbono, panel"></p:commandButton>
+				<p:commandButton actionListener="#{JustificativaAbonoControl.incluir }"	value="Adicionar" ajax="false" update="justificativaAbono, panel"></p:commandButton>
 			</h:panelGrid>
 		</p:panel>
 		
@@ -65,11 +65,11 @@
 				<h:outputText value="#{abono.descricao}"></h:outputText>
 			</p:column>
 			<!-- ANEXO DE DOCUMENTO -->
-			<p:column sortBy="#{abono.anexoDocumentos}">
+			<p:column sortBy="#{abono.anexoDocumento}">
 				<f:facet name="header">
 					<h:outputText value="Anexos"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{abono.anexoDocumentos}"></h:outputText>
+				<h:outputText value="#{abono.anexoDocumento}"></h:outputText>
 			</p:column>
 			<!-- HORA DIARIA INICIO -->
 			<p:column sortBy="#{abono.horasDiariaInicio}">

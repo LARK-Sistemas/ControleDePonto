@@ -21,7 +21,7 @@ public class Empresa {
 	private String cep;
 	private String inscricaoEstadual;
 	private String email;
-	private String fone;
+	private String telefone;
 	private String site;
 	private String redeSocial;
 	private Double porcentagemHorasExtras;
@@ -49,7 +49,7 @@ public class Empresa {
 		this.cep = cep;
 		this.inscricaoEstadual = inscricaoEstadual;
 		this.email = email;
-		this.fone = fone;
+		this.telefone = fone;
 		this.site = site;
 		this.redeSocial = redeSocial;
 		this.porcentagemHorasExtras = porcentagemHorasExtras;
@@ -133,11 +133,11 @@ public class Empresa {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getFone() {
-		return fone;
+	public String getTelefone() {
+		return telefone;
 	}
-	public void setFone(String fone) {
-		this.fone = fone;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 	public String getSite() {
 		return site;
