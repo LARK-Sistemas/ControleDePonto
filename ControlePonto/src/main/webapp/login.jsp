@@ -28,7 +28,8 @@
     	<div class="container">
         	<div class="row branding">
             	<div class="span6">
-                	<h1 class="pull-left"><strong>CONTROLE E GESTÃO DE PONTO - LARK SISTEMAS</strong></h1>
+                	<h1 class="pull-left"><strong>CONTROLE E GESTÃO DE PONTO</strong></h1>
+                	<h2 class="pull-left"><strong>LARK SISTEMAS</strong></h2>
                 </div>            	
             </div>
                         <div class="row navigation">
