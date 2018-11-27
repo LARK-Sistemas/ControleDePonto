@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://www.ambientinformatica.com.br/jsf2"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+	<ui:define name="corpo">
+		<h:form id="form">
+			<p:growl id="msgs" showDetail="true" />
+
+				<p:dataTable id="AjusteDeRegisgro" var="ajuste" value="#{AjusteDeRegistroControl.ajusteDeRegistros}"
+					editable="true" editMode="cell" widgetVar="cellCars">
+					<f:facet name="header">
+            			Ajuste de Registro de Ponto
+        			</f:facet>
+
+					<p:ajax event="cellEdit" listener="#{AjusteDeRegistroControl.onCellEdit}"
+						update="@form" />	
+
+					<p:column headerText="Id">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{ajuste.id}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText id="modelInput" value="#{ajuste.id}" style="width:96%" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="Nome">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{ajuste.nome}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{ajuste.nome}" style="width:96%" label="Nome" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					
+					<p:column headerText="CPF">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{ajuste.cpf}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{ajuste.cpf}" style="width:96%" label="CPF" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					
+					<p:column headerText="Data">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{ajuste.data}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{ajuste.data}" style="width:96%" label="Data" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					
+					<p:column headerText="Codigo Jornada">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{ajuste.codigoJornadaTrabalho}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{ajuste.codigoJornadaTrabalho}" style="width:96%" label="Codigo Jornada" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+				
+					
+					<p:column headerText="Primeira Entrada">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{ajuste.primeiraEntrada}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{ajuste.primeiraEntrada}" style="width:96%" label="Primeira Entrada" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+				
+				<p:column headerText="Primeira Saida">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{ajuste.primeiraSaida}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{ajuste.primeiraSaida}" style="width:96%" label="Primeira Saida" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+				
+				<p:column headerText="Segunda Entrada">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{ajuste.segundaEntrada}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{ajuste.segundaEntrada}" style="width:96%" label="Segunda Entrada" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+				
+				<p:column headerText="Segunda Saida">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{ajuste.segundaSaida}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{ajuste.segundaSaida}" style="width:96%" label="Segunda Saida" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+				
+				<p:column headerText="Saldo">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{ajuste.saldo}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{ajuste.saldo}" style="width:96%" label="saldo" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+				</p:dataTable>
+					
+				<p:contextMenu for="AjusteDeRegisgro" widgetVar="cMenu">
+					<p:menuitem value="Edit Cell" icon="pi pi-search"
+						onclick="PF('cellCars').showCellEditor();return false;" />
+					<p:menuitem value="Hide Menu" icon="pi pi-times"
+						onclick="PF('cMenu').hide()" />
+				</p:contextMenu>
+			
+		</h:form>
+	</ui:define>
+</ui:composition>
