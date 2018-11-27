@@ -9,130 +9,171 @@
 
 		<p:panel header="Cadastro de Funcionário" id="panel">
 			<h:panelGrid columns="4">
-			
+
 				<h:outputLabel value="ID:"></h:outputLabel>
-				<p:inputText id="id" value="#{FuncionarioControl.funcionario.id }" required="false" label="ID"></p:inputText>
+				<p:inputText id="id" value="#{FuncionarioControl.funcionario.id }"
+					required="false" label="ID"></p:inputText>
 				<p:messages id="messages" showDetail="true" />
-				<p:watermark for="id" value="Usado P/ Excluir e Alterar" id="watermark" />
-											
+				<p:watermark for="id" value="Usado P/ Excluir e Alterar"
+					id="watermark" />
+
 				<h:outputText value="Nome"></h:outputText>
 				<p:inputText value="#{FuncionarioControl.funcionario.nome }"></p:inputText>
-				
+
 				<h:outputText value="CPF"></h:outputText>
-				<p:inputMask value="#{FuncionarioControl.funcionario.cpf }" mask="999.999.999-99"></p:inputMask>
-				
+				<p:inputMask value="#{FuncionarioControl.funcionario.cpf }"
+					mask="999.999.999-99"></p:inputMask>
+
 				<h:outputText value="Logradoudo"></h:outputText>
 				<p:inputText value="#{FuncionarioControl.funcionario.logradouro }"></p:inputText>
-				
+
 				<h:outputText value="Numero"></h:outputText>
-				<p:inputMask value="#{FuncionarioControl.funcionario.numero }" mask="99999"></p:inputMask>
-				
+				<p:inputMask value="#{FuncionarioControl.funcionario.numero }"
+					mask="99999"></p:inputMask>
+
 				<h:outputText value="Complemento"></h:outputText>
 				<p:inputText value="#{FuncionarioControl.funcionario.complemento }"></p:inputText>
-				
+
 				<h:outputText value="Bairro"></h:outputText>
 				<p:inputText value="#{FuncionarioControl.funcionario.bairro }"></p:inputText>
-				
+
 				<h:outputText value="Cidade"></h:outputText>
 				<p:inputText value="#{FuncionarioControl.funcionario.cidade }"></p:inputText>
-				
+
 				<h:outputText value="Estado"></h:outputText>
 				<p:inputText value="#{FuncionarioControl.funcionario.estado }"></p:inputText>
-				
-				<h:outputText value="CEP"></h:outputText>				
-				<p:inputMask value="#{FuncionarioControl.funcionario.cep }" mask="99999-999"></p:inputMask>
-				
-				<h:outputText value="Telefone Residencial"></h:outputText>				
-				<p:inputMask value="#{FuncionarioControl.funcionario.telefone }" mask="(99) 9999-9999"></p:inputMask>
-				
-				<h:outputText value="Telefone Celular"></h:outputText>				
-				<p:inputMask value="#{FuncionarioControl.funcionario.celular }" mask="(99) 99999-9999"></p:inputMask>
-				
-				<h:outputText value="Banco Horas"></h:outputText>				
-				<p:selectOneMenu id="bancoHoras" value="#{FuncionarioControl.funcionario.bancoHoras}" style="width: 195px">
+
+				<h:outputText value="CEP"></h:outputText>
+				<p:inputMask value="#{FuncionarioControl.funcionario.cep }"
+					mask="99999-999"></p:inputMask>
+
+				<h:outputText value="Telefone Residencial"></h:outputText>
+				<p:inputMask value="#{FuncionarioControl.funcionario.telefone }"
+					mask="(99) 9999-9999"></p:inputMask>
+
+				<h:outputText value="Telefone Celular"></h:outputText>
+				<p:inputMask value="#{FuncionarioControl.funcionario.celular }"
+					mask="(99) 99999-9999"></p:inputMask>
+
+				<h:outputText value="Banco Horas"></h:outputText>
+				<p:selectOneMenu id="bancoHoras"
+					value="#{FuncionarioControl.funcionario.bancoHoras}"
+					style="width: 195px">
 					<f:selectItem itemLabel="Sim" itemValue="Sim" />
-		            <f:selectItem itemLabel="Não" itemValue="Não" />		            
-	           </p:selectOneMenu>
-				
-				<h:outputText value="Jornada de Trabalho"></h:outputText>				
-				<p:inputMask value="#{FuncionarioControl.funcionario.jornadaTrabalho }" mask="99"></p:inputMask>
+					<f:selectItem itemLabel="Não" itemValue="Não" />
+				</p:selectOneMenu>
 				
 				<h:outputText value="RFID"></h:outputText>
 				<p:inputText value="#{FuncionarioControl.funcionario.rfid }"></p:inputText>
 				
 				<h:outputText value="Papel"></h:outputText>
-				<p:selectOneMenu id="papel" value="#{FuncionarioControl.funcionario.papel}" style="width: 195px">
+				<p:selectOneMenu id="papel"
+					value="#{FuncionarioControl.funcionario.papel}"
+					style="width: 195px">
 					<f:selectItem itemLabel="Operacional" itemValue="Operacional" />
-		            <f:selectItem itemLabel="Supervisor" itemValue="Supervisor" />
-		            <f:selectItem itemLabel="RH" itemValue="RH" />
-	           </p:selectOneMenu>
-	           
-	           <h:outputText value="Status"></h:outputText>
-				<p:selectOneMenu id="status" value="#{FuncionarioControl.funcionario.status}" style="width: 195px">
-					<f:selectItem itemLabel="Situação normal" itemValue="Situação normal" />
-		            <f:selectItem itemLabel="Desligado" itemValue="Desligado" />		            
-	           </p:selectOneMenu>
+					<f:selectItem itemLabel="Supervisor" itemValue="Supervisor" />
+					<f:selectItem itemLabel="RH" itemValue="RH" />
+				</p:selectOneMenu>
+
+				<h:outputText value="Status"></h:outputText>
+				<p:selectOneMenu id="status"
+					value="#{FuncionarioControl.funcionario.status}"
+					style="width: 195px">
+					<f:selectItem itemLabel="Situação normal"
+						itemValue="Situação normal" />
+					<f:selectItem itemLabel="Desligado" itemValue="Desligado" />
+				</p:selectOneMenu>
 				
-				<p:commandButton actionListener="#{FuncionarioControl.confirmar }" value="Incluir/Alterar" update="funcionarios, panel"></p:commandButton>
-				<p:commandButton actionListener="#{FuncionarioControl.excluir }" value="Excluir" update="funcionarios, panel"></p:commandButton>
+				<h:outputText for="multiple" value="Jornadas de Trabalho"></h:outputText>
+				<p:selectCheckboxMenu id="multiple"
+					value="#{FuncionarioControl.funcionario.jornada}"
+					label="Jornadas" multiple="true" filter="true"
+					filterMatchMode="startsWith" panelStyle="width:250px">
+					<f:selectItems value="#{JornadaTrabalhoControl.jornadas}" />
+				</p:selectCheckboxMenu>
+				<p:dialog header="Itens Selecionados" modal="true" showEffect="fade"
+					hideEffect="fade" widgetVar="itemDialog" width="250">
+					<p:outputPanel id="displayItems">
+						<p:dataList
+							value="#{FuncionarioControl.funcionario.jornada}"
+							var="dias" emptyMessage="nenhum dia da semana foi selecionada">
+							<f:facet name="header">
+                    			Jornadas de Trabalho
+                			</f:facet>
+                			#{dias}
+            			</p:dataList>
+					</p:outputPanel>
+				</p:dialog>
+
+
+				
+
+				
+
+				<p:commandButton actionListener="#{FuncionarioControl.confirmar }"
+					value="Incluir/Alterar" update="funcionarios, panel"></p:commandButton>
+				<p:commandButton actionListener="#{FuncionarioControl.excluir }"
+					value="Excluir" update="funcionarios, panel, displayItems"></p:commandButton>
 			</h:panelGrid>
 		</p:panel>
-		
-		<p:dataTable id="funcionarios" value="#{FuncionarioControl.funcionarios }" var="func"  width="100%" emptyMessage="Sem registros" >
+
+		<p:dataTable id="funcionarios"
+			value="#{FuncionarioControl.funcionarios }" var="func" width="100%"
+			emptyMessage="Sem registros">
 			<f:facet name="header">
 				<h:outputText value="Lista de Funcionários"></h:outputText>
 			</f:facet>
-			
+
 			<p:column sortBy="#{func.id }">
 				<f:facet name="header">
 					<h:outputText value="ID"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{func.id }"></h:outputText>
 			</p:column>
-						
+
 			<p:column sortBy="#{func.nome }">
 				<f:facet name="header">
 					<h:outputText value="Nome"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{func.nome }"></h:outputText>
-			</p:column>	
-			
+			</p:column>
+
 			<p:column sortBy="#{func.cpf }">
 				<f:facet name="header">
 					<h:outputText value="CPF"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{func.cpf }"></h:outputText>
-			</p:column>	
-			
-						
+			</p:column>
+
+
 			<p:column sortBy="#{func.telefone }">
 				<f:facet name="header">
 					<h:outputText value="Telefone"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{func.telefone }"></h:outputText>
-			</p:column>	
-			
+			</p:column>
+
 			<p:column sortBy="#{func.celular }">
 				<f:facet name="header">
 					<h:outputText value="Celular"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{func.celular }"></h:outputText>
 			</p:column>
-			
+
 			<p:column sortBy="#{func.bancoHoras }">
 				<f:facet name="header">
 					<h:outputText value="Banco Horas"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{func.bancoHoras }"></h:outputText>
 			</p:column>
-			
-			<p:column sortBy="#{func.jornadaTrabalho }">
+
+			<p:column sortBy="#{func.mostraJornada }">
 				<f:facet name="header">
 					<h:outputText value="Jornada Trabalho"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{func.jornadaTrabalho }"></h:outputText>
+				<h:outputText value="#{func.mostraJornada }"></h:outputText>
 			</p:column>
-			
+
 			<p:column sortBy="#{func.rfid }">
 				<f:facet name="header">
 					<h:outputText value="RFID"></h:outputText>
@@ -151,7 +192,7 @@
 				</f:facet>
 				<h:outputText value="#{func.status }"></h:outputText>
 			</p:column>
-			
+
 		</p:dataTable>
 
 	</ui:define>

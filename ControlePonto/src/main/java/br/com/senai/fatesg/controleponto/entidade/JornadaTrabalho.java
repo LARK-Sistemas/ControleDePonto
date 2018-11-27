@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -19,15 +21,15 @@ public class JornadaTrabalho {
 
 	private String descricao;
 	
-	private String[] diasDaSemana ;
+	private String[] diasDaSemana;
 
-	private Date inicioHorasDiaria;
+	private String inicioHorasDiaria;
 
-	private Date terminoHorasDiaria;
+	private String terminoHorasDiaria;
 
-	private Date inicioHorasIntervalo;
+	private String inicioHorasIntervalo;
 
-	private Date terminoHorasIntervalo;
+	private String terminoHorasIntervalo;
 
 	private double horasSemanais;
 
@@ -36,20 +38,12 @@ public class JornadaTrabalho {
 	private String mostraDias = "";
 	
 	
-
-	public JornadaTrabalho() {
-		super();
+	@ManyToOne
+	@JoinColumn(name = "idFuncionario")
+	private Funcionario funcionario;
 		
-	}
-	public JornadaTrabalho(Integer id) {
-		super();
-		this.id = id;		
-	}
-	
-	
-	
-	public JornadaTrabalho(Integer id, String descricao, String[] diasDaSemana, Date inicioHorasDiaria,
-			Date terminoHorasDiaria, Date inicioHorasIntervalo, Date terminoHorasIntervalo, double horasSemanais,
+	public JornadaTrabalho(Integer id, String descricao, String[] diasDaSemana, String inicioHorasDiaria,
+			String terminoHorasDiaria, String inicioHorasIntervalo, String terminoHorasIntervalo, double horasSemanais,
 			double horasMensais, String mostraDias) {
 		super();
 		this.id = id;
@@ -63,9 +57,25 @@ public class JornadaTrabalho {
 		this.horasMensais = horasMensais;
 		this.mostraDias = mostraDias;
 	}
-
-
-
+	public JornadaTrabalho() {
+		super();
+		
+	}
+	
+	
+	
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+	public JornadaTrabalho(Integer id) {
+		super();
+		this.id = id;		
+	}
+	
+	
 	public Integer getId() {
 		return id;
 	}
@@ -108,38 +118,6 @@ public class JornadaTrabalho {
 
 	}
 	
-	public Date getInicioHorasDiaria() {
-		return inicioHorasDiaria;
-	}
-
-	public void setInicioHorasDiaria(Date inicioHorasDiaria) {
-		this.inicioHorasDiaria = inicioHorasDiaria;
-	}
-
-	public Date getTerminoHorasDiaria() {
-		return terminoHorasDiaria;
-	}
-
-	public void setTerminoHorasDiaria(Date terminoHorasDiaria) {
-		this.terminoHorasDiaria = terminoHorasDiaria;
-	}
-
-	public Date getInicioHorasIntervalo() {
-		return inicioHorasIntervalo;
-	}
-
-	public void setInicioHorasIntervalo(Date inicioHorasIntervalo) {
-		this.inicioHorasIntervalo = inicioHorasIntervalo;
-	}
-
-	public Date getTerminoHorasIntervalo() {
-		return terminoHorasIntervalo;
-	}
-
-	public void setTerminoHorasIntervalo(Date terminoHorasIntervalo) {
-		this.terminoHorasIntervalo = terminoHorasIntervalo;
-	}
-
 	public double getHorasSemanais() {
 		return horasSemanais;
 	}
@@ -155,5 +133,30 @@ public class JornadaTrabalho {
 	public void setHorasMensais(double horasMensais) {
 		this.horasMensais = horasMensais;
 	}
+	public String getInicioHorasDiaria() {
+		return inicioHorasDiaria;
+	}
+	public void setInicioHorasDiaria(String inicioHorasDiaria) {
+		this.inicioHorasDiaria = inicioHorasDiaria;
+	}
+	public String getTerminoHorasDiaria() {
+		return terminoHorasDiaria;
+	}
+	public void setTerminoHorasDiaria(String terminoHorasDiaria) {
+		this.terminoHorasDiaria = terminoHorasDiaria;
+	}
+	public String getInicioHorasIntervalo() {
+		return inicioHorasIntervalo;
+	}
+	public void setInicioHorasIntervalo(String inicioHorasIntervalo) {
+		this.inicioHorasIntervalo = inicioHorasIntervalo;
+	}
+	public String getTerminoHorasIntervalo() {
+		return terminoHorasIntervalo;
+	}
+	public void setTerminoHorasIntervalo(String terminoHorasIntervalo) {
+		this.terminoHorasIntervalo = terminoHorasIntervalo;
+	}
+	
 	
 }

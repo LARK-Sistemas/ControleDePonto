@@ -12,7 +12,9 @@ import org.springframework.context.annotation.Scope;
 
 import br.com.ambientinformatica.ambientjsf.util.UtilFaces;
 import br.com.senai.fatesg.controleponto.entidade.Funcionario;
+import br.com.senai.fatesg.controleponto.entidade.JornadaTrabalho;
 import br.com.senai.fatesg.controleponto.persistencia.FuncionarioDao;
+import br.com.senai.fatesg.controleponto.persistencia.JornadaTrabalhoDao;
 
 @Named("FuncionarioControl")
 @Scope("conversation")
@@ -23,15 +25,22 @@ public class FuncionarioControl {
 	@Autowired
 	private FuncionarioDao funcionarioDao;
 	
+	private JornadaTrabalhoDao jornadaTrabalhoDao;
+
+	private List<JornadaTrabalho> jornadasTrabalhos = new ArrayList<JornadaTrabalho>();
 	private List<Funcionario> funcionarios = new ArrayList<Funcionario>();
+	private List<String> jornadas = new ArrayList<String>();
 	
 	@PostConstruct
 	public void init(){
-	      listar(null);
+	    listar(null);
 	}
+	
+	
 	
 	public void confirmar(ActionEvent evt){
 		try {
+			funcionario.mostraJornada();
 			funcionarioDao.alterar(funcionario);
          listar(evt);
          funcionario = new Funcionario();
@@ -69,6 +78,43 @@ public class FuncionarioControl {
 	public List<Funcionario> getFuncionarios() {
 		return funcionarios;
 	}
+
+	public FuncionarioDao getFuncionarioDao() {
+		return funcionarioDao;
+	}
+
+	public void setFuncionarioDao(FuncionarioDao funcionarioDao) {
+		this.funcionarioDao = funcionarioDao;
+	}
+
+	public JornadaTrabalhoDao getJornadaTrabalhoDao() {
+		return jornadaTrabalhoDao;
+	}
+
+	public void setJornadaTrabalhoDao(JornadaTrabalhoDao jornadaTrabalhoDao) {
+		this.jornadaTrabalhoDao = jornadaTrabalhoDao;
+	}
+
+	public List<JornadaTrabalho> getJornadasTrabalhos() {
+		return jornadasTrabalhos;
+	}
+
+	public void setJornadasTrabalhos(List<JornadaTrabalho> jornadasTrabalhos) {
+		this.jornadasTrabalhos = jornadasTrabalhos;
+	}
+
+	public List<String> getJornadas() {
+		return jornadas;
+	}
+
+	public void setJornadas(List<String> jornadas) {
+		this.jornadas = jornadas;
+	}
+
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
+	}
+	
 	
 }
 

@@ -1,11 +1,17 @@
 package br.com.senai.fatesg.controleponto.entidade;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 @Entity
@@ -26,7 +32,18 @@ public class JustificativaAbono {
 	private String dataInicio;
 	private String dataTermino;
 	private String status;
+	@Temporal(TemporalType.DATE)
+	private Date data;
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "justificativasAbonos")
+	private List<Funcionario> funcionarios;
 	
+	
+	public Date getData() {return data;	}
+	public void setData(Date data) {this.data = data;}
+	public List<Funcionario> getFuncionarios() {return funcionarios;}
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
+	}
 	//GETTERS
 	public Integer getId() {return id;}									//ID
 	public String getTitulo() {return titulo;}							//TITULO

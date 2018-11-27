@@ -1,6 +1,7 @@
 package br.com.senai.fatesg.controleponto.controle;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -30,11 +31,14 @@ public class JornadaTrabalhoControl {
 	private List<JornadaTrabalho> jornadasTrabalhos = new ArrayList<JornadaTrabalho>();
 
 	private List<String> diasSemana = new ArrayList<String>();
+	private List<String> jornadas = new ArrayList<String>();
+	private String jornada;
 
 	@PostConstruct
 	public void init() {
 
 		preencherDiasDaSemana();
+		preencherJornadas();
 		listar(null);
 	}
 
@@ -49,7 +53,21 @@ public class JornadaTrabalhoControl {
 		diasSemana.add("Sabádo");
 		diasSemana.add("Domingo");
 	}
-
+	
+	
+	
+	private void preencherJornadas() {
+		// TODO Auto-generated method stub
+		jornadasTrabalhos = jornadaTrabalhoDao.listar();
+		for (int i = 0; i < jornadasTrabalhos.size(); i++) {
+			if(!jornadasTrabalhos.isEmpty()) {
+				//jornadas.add(jornadaTrabalho.getDescricao());
+				jornadas.add(jornadasTrabalhos.get(i).getDescricao());
+			}
+				
+				
+		}
+	}
 	public void confirmar(ActionEvent evt) {
 		try {
 			jornadaTrabalho.mostraDias();
@@ -122,6 +140,16 @@ public class JornadaTrabalhoControl {
 		} catch (Exception e) {
 			UtilFaces.addMensagemFaces(e);
 		}
+	}
+	
+	
+	
+	public List<String> getJornadas() {
+		return jornadas;
+	}
+
+	public void setJornadas(List<String> jornadas) {
+		this.jornadas = jornadas;
 	}
 
 	public JornadaTrabalho getJornadaTrabalho() {

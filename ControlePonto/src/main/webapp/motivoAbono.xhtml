@@ -10,13 +10,11 @@
 		<h:form>
 			<p:panel header="Cadastro Motivo de Abono" id="panel">
 				<h:panelGrid columns="2">
-					<h:outputLabel value="ID: "/>
-					<p:inputText id="id"
-						value="#{MotivoAbonoControl.motivoAbono.id }"
-						required="false" label="ID"></p:inputText>
-					<p:messages id="messages" showDetail="true" />
-					<p:watermark for="id" value="Usado P/ Excluir e Alterar" 
-						id="watermark" />
+					<h:outputLabel value="ID:" />
+					<p:inputText id="id" required="false" label="id"
+						value="#{MotivoAbonoControl.motivoAbono.id }"></p:inputText>
+					<p:watermark for="id" value="Usado P/ Excluir e Alterar" />
+					<p:message for="id" showDetail="true" />
 					
 					<h:outputText value="Descrição"></h:outputText>
 					<p:inputMask

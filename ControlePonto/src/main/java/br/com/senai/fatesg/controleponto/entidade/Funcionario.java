@@ -1,58 +1,132 @@
 package br.com.senai.fatesg.controleponto.entidade;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Funcionario {
 	@Id
-	@GeneratedValue(generator="funcionario_seq", strategy=GenerationType.SEQUENCE)
-	@SequenceGenerator(name="funcionario_seq", sequenceName="funcionario_seq", allocationSize=1, initialValue=1)
+	@GeneratedValue(generator = "funcionario_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "funcionario_seq", sequenceName = "funcionario_seq", allocationSize = 1, initialValue = 1)
 	private Integer id;
-	
+
 	private String nome;
-	
+
 	private String logradouro;
-	
+
 	private String numero;
-	
+
 	private String complemento;
-	
+
 	private String bairro;
-	
+
 	private String cidade;
-	
+
 	private String estado;
-	
+
 	private String cep;
-	
+
 	private String telefone;
-	
+
 	private String celular;
-	
+
 	private String cpf;
-	
+
 	private String bancoHoras;
-	
+
 	private Integer jornadaTrabalho;
-	
+
 	private String rfid;
-	
+
 	private String papel;
-	
+
 	private String status;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "funcionario")
+	private List<JornadaTrabalho> jornadasDeTrabalho;
+	
+	
+	private String[] jornada;
+	
+	private String mostraJornada = "";
+	
+	@ManyToMany(cascade = { 
+	        CascadeType.PERSIST, 
+	        CascadeType.MERGE
+	    },
+		//mappedBy = "funcionarios",
+	        targetEntity = JustificativaAbono.class
+	)
+	    @JoinTable(name = "RegistroJustificativa",
+	        joinColumns = @JoinColumn(name = "idFuncionario"),
+	        inverseJoinColumns = @JoinColumn(name = "idJustificativaAbono")
+	    )
+	private List<JustificativaAbono> justificativasAbonos;
+
+	
+	
+	
+	public String getMostraJornada() {
+		return mostraJornada;
+	}
+	
+	public void mostraJornada()
+	{
+		for (int i = 0; i < jornada.length; i++) {
+			System.out.println(jornada[i]);
+			mostraJornada+=jornada[i];
+		}
+		
+	}
+	
+	public void setMostraJornada(String mostraJornada) {
+		this.mostraJornada = mostraJornada;
+	}
+
+	public String[] getJornada() {
+		return jornada;
+	}
+
+	public void setJornada(String[] jornada) {
+		this.jornada = jornada;
+	}
+
+	public List<JornadaTrabalho> getJornadasDeTrabalho() {
+		return jornadasDeTrabalho;
+	}
+
+	public void setJornadasDeTrabalho(List<JornadaTrabalho> jornadasDeTrabalho) {
+		this.jornadasDeTrabalho = jornadasDeTrabalho;
+	}
+
+	public List<JustificativaAbono> getJustificativasAbonos() {
+		return justificativasAbonos;
+	}
+
+	public void setJustificativasAbonos(List<JustificativaAbono> justificativasAbonos) {
+		this.justificativasAbonos = justificativasAbonos;
+	}
 
 	public Integer getId() {
 		return id;
 	}
-	
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -149,8 +223,6 @@ public class Funcionario {
 		this.bancoHoras = bancoHoras;
 	}
 
-	
-
 	public Integer getJornadaTrabalho() {
 		return jornadaTrabalho;
 	}
@@ -182,5 +254,5 @@ public class Funcionario {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
+
 }
