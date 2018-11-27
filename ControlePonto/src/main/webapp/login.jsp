@@ -2,11 +2,14 @@
 <%@page contentType="text/html; charset=UTF-8" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Título aqui</title>
+	<title>CG-Ponto</title>
 
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/bootstrap-responsive.css" rel="stylesheet" />
+  <!--  <link href="css/login.css" rel="stylesheet" /> -->
     <link href="css/styles.css" rel="stylesheet" />
+    
+      
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -19,90 +22,50 @@
 	</script>
 </head>
 <body>
-<form action="j_spring_security_check" method="post">
-<div class="wrapper">
+	<form action="j_spring_security_check" method="post">
+	<div class="wrapper">
 	<div class="header">
     	<div class="container">
         	<div class="row branding">
             	<div class="span6">
-                	<h1 class="pull-left"><a href="index.html"><strong>Título Sistema</strong></a></h1>
+                	<h1 class="pull-left"><strong>CONTROLE E GESTÃO DE PONTO - LARK SISTEMAS</strong></h1>
                 </div>            	
             </div>
-            <div class="row navigation">
-	           	<div class="span12">
-                    <ul class="nav nav-tabs">
-                      <li><a href="menu1.jsp">Menu 1</a></li>
-                      <li><a href="menu2.jsp">Menu 2</a></li>
-                    </ul>
-                </div>
+                        <div class="row navigation">
+	           
             </div>
         </div>        
     </div>
-	<div class="container content">
-        <div class="row">
-            <div class="span8 leftContent">
-            	<h2>subtítulo sistema</h2>
-                <div class="row">
-                	<div class="span4">
-                    	<p class="cntPara simpleDesign" align="justify">
-                        	<strong class="lead">Titulo caixa 1</strong>
-							Conteúdo caixa 1                        	
-                        </p>            	                                                
-                    </div>
-                    
-                    <div class="span4">
-                    	<p class="cntPara itsFree" align="justify">
-                        	<strong class="lead">Título caixa 2</strong>
-							Conteúdo caixa 2
-                       </p>      
-                    </div>                                        
-                </div>
-                <hr/>
-                <div class="row">
-                	<div class="span4">
-                    	<p class="cntPara secureApp"  align="justify">
-                        	<strong class="lead">Título caixa 2</strong>
-							conteúdo caixa 3
-                    </div>
-                    
-                    <div class="span4">
-                    	<p class="cntPara easyUse">
-                        	<strong class="lead">Título caixa 4</strong>
-							conteúdo caixa 4
-                         </p>      
-                    </div>                                        
-                </div>
-                <hr/>   
-                <div class="row">
-                	<div class="span8">
-                    	<h3 class="quickTour">Rodapé</h3>
-						conteúdo rodapé
-                    </div>                                        
-                </div>
-            </div>
-            
-            <div class="span4 sidebar">
-                <h2><a href="#" class="btn btn-large btn-warning">Alguma ação</a></h2>
-                <div class="well quickSignupForm">
-                  <h3>Acesso ao Sistema</h3>
-					<%
-					if (request.getParameter("msg") != null) {
-						out.print("<span style='color: red;font-weight: bold;'>Usuário ou senha incorretos</span>");
-					}%>		
-                  <label>Login</label>
-                  <input type="text" id="usuario" name="j_username" class="span3"  />
-                  <label>Senha</label>
-                  <input id="senha" name="j_password" type="password" class="span3" />                  
-                  <input id="btnEntrar" class="btn btn-large btn-success btnSignup" type="submit" value="Entrar" />
-                </div>
-                <h3>Titulo caixa</h3>
-                <p>
-					Conteúdo caixa 
-                </p>                
-            </div>
-            
+	<div class="row">
+        <div class="span8 sidebar">  
+	            	<div class="well quickSignupForm" style="height: 35%; margin-top: 30%; margin-left: 90%; width: 60%;">			        
+			        <!-- 	<div class="boxBottom colorFive"> -->
+			          		<h2 class="colorTextThree" style="margin-left: 40%">Login</h2>
+			          		<br/>
+			          		<div class="span4 sidebar">  		                               
+								<%
+								if (request.getParameter("msg") != null) {
+									out.print("<span style='color: red;font-weight: bold;'>Usuário ou senha incorretos</span>");
+								}%>		
+			                  <!--  <h2 class="colorTextThree">Usuário</h2>
+			                 </p><input type="text" id="usuario" name="j_username" class="span3"/>  -->
+			                 
+			                 
+			                  <input type="text" id="usuario" name="j_username" class="form-control" placeholder="Usuário" required autofocus style="width: 105%;">
+			                  
+			                  
+			                  <!-- <h2 class="colorTextThree">Senha</h2>
+			                  <input id="senha" name="j_password" type="password" class="span3" />   -->
+			                  <br />                
+			                  
+			                  <input type="password" id="senha" name="j_password" class="form-control" placeholder="Senha" required autofocus style="width: 105%;"> <br>
+			                  <br>
+			                  <input class="btn btn-info" id="btnEntrar" type="submit" value="Entrar" style="width: 40%; margin-left: 35%"></input> 		                        
+			            	</div>
+			          	</div>
+			        
+	        	</div>                    
     	</div>
     </div>
-</div>
 </body>
 </html>
