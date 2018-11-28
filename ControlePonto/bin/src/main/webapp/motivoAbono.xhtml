@@ -10,24 +10,28 @@
 		<h:form>
 			<p:panel header="Cadastro Motivo de Abono" id="panel">
 				<h:panelGrid columns="2">
-					<h:outputLabel value="ID:" />
-					<p:inputText id="id" required="false" label="id"
-						value="#{MotivoAbonoControl.motivoAbono.id }"></p:inputText>
-					<p:watermark for="id" value="Usado P/ Excluir e Alterar" />
-					<p:message for="id" showDetail="true" />
+					<h:outputLabel value="ID: "/>
+					<p:inputText id="id"
+						value="#{MotivoAbonoControl.motivoAbono.id }"
+						required="false" label="ID"></p:inputText>
+					<p:messages id="messages" showDetail="true" />
+					<p:watermark for="id" value="Usado P/ Excluir e Alterar" id="watermark" />
 					
+
 					<h:outputText value="Descrição"></h:outputText>
-					<p:inputMask
-						value="#{MotivoAbonoControl.motivoAbono.descricao }" maxlength="40"></p:inputMask>
+					<p:inputText
+						value="#{MotivoAbonoControl.motivoAbono.descricao }"></p:inputText>
+					<h:outputLabel for="multiple" value="Descrição " />
+					
 					<h:outputText value="Data Inicio"></h:outputText>
 					<p:inputMask
-						value="#{MotivoAbonoControl.motivoAbono.dataInicio }"
-						mask="99/99/9999"></p:inputMask>
-					<h:outputText value="Data Inicio"></h:outputText>
+						value="#{MotivoAbonoControl.motivoAbono.inicioHorasDiaria }"
+						mask="99.99"></p:inputMask>
+					<h:outputText value="Termino Horas Diarias"></h:outputText>
 					<p:inputMask
 						value="#{MotivoAbonoControl.motivoAbono.dataTermino }"
-						mask="99/99/9999"></p:inputMask>
-					<h:outputText value="Data Termino"></h:outputText>
+						mask="99.99"></p:inputMask>
+					<h:outputText value="Inicio Horas Intervalo"></h:outputText>
 					
 					<p:commandButton
 						actionListener="#{MotivoAbonoControl.confirmar }"
@@ -40,7 +44,7 @@
 			</p:panel>
 
 			<p:dataTable id="motivoAbono"
-				value="#{MotivoAbonoControl.motivosAbonos }" var="cont"
+				value="#{MotivoAbonoControl.motivoAbonos }" var="cont"
 				width="100%" emptyMessage="Sem registros">
 				<f:facet name="header">
 					<h:outputText value="Lista de Motivos de Abonos"></h:outputText>

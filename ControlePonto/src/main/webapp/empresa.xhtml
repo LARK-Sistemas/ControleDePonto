@@ -23,7 +23,9 @@
 				<p:inputText value="#{EmpresaControl.empresa.nomeFantasia}" maxlength="50"></p:inputText>
 				
 				<h:outputText value="Logradouro"></h:outputText>
-				<p:inputText value="#{EmpresaControl.empresa.logradouro}" maxlength="40"></p:inputText>
+				<p:inputText value="#{EmpresaControl.empresa.logradouro}" maxlength="40">
+					<p:keyFilter regEx="/[a-z ,]/i"/>
+				</p:inputText>
 				
 				<h:outputText value="Numero"></h:outputText>
 				<p:inputText value="#{EmpresaControl.empresa.numero}" maxlength="6"></p:inputText>

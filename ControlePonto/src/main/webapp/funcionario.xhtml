@@ -18,30 +18,39 @@
 					id="watermark" />
 
 				<h:outputText value="Nome"></h:outputText>
-				<p:inputText value="#{FuncionarioControl.funcionario.nome }"></p:inputText>
+				<p:inputText value="#{FuncionarioControl.funcionario.nome }" maxlength="50">
+					<p:keyFilter regEx="/[a-z ]/i"/>
+				</p:inputText>
 
 				<h:outputText value="CPF"></h:outputText>
 				<p:inputMask value="#{FuncionarioControl.funcionario.cpf }"
 					mask="999.999.999-99"></p:inputMask>
 
 				<h:outputText value="Logradoudo"></h:outputText>
-				<p:inputText value="#{FuncionarioControl.funcionario.logradouro }"></p:inputText>
+				<p:inputText value="#{FuncionarioControl.funcionario.logradouro }" maxlength="40">
+					<p:keyFilter regEx="/[a-z ,]/i"/>
+				</p:inputText>
 
 				<h:outputText value="Numero"></h:outputText>
-				<p:inputMask value="#{FuncionarioControl.funcionario.numero }"
-					mask="99999"></p:inputMask>
+				<p:inputText value="#{FuncionarioControl.funcionario.numero }" maxlength="5">
+					<p:keyFilter regEx="/[0-9]/i"/>
+				</p:inputText>
 
 				<h:outputText value="Complemento"></h:outputText>
-				<p:inputText value="#{FuncionarioControl.funcionario.complemento }"></p:inputText>
+				<p:inputText value="#{FuncionarioControl.funcionario.complemento }" maxlength="40"></p:inputText>
 
 				<h:outputText value="Bairro"></h:outputText>
-				<p:inputText value="#{FuncionarioControl.funcionario.bairro }"></p:inputText>
+				<p:inputText value="#{FuncionarioControl.funcionario.bairro }" maxlength="30"></p:inputText>
 
 				<h:outputText value="Cidade"></h:outputText>
-				<p:inputText value="#{FuncionarioControl.funcionario.cidade }"></p:inputText>
+				<p:inputText value="#{FuncionarioControl.funcionario.cidade }" maxlength="30">
+					<p:keyFilter regEx="/[a-z ]/i"/>
+				</p:inputText>
 
 				<h:outputText value="Estado"></h:outputText>
-				<p:inputText value="#{FuncionarioControl.funcionario.estado }"></p:inputText>
+				<p:inputText value="#{FuncionarioControl.funcionario.estado }" maxlength="20">
+					<p:keyFilter regEx="/[a-z ]/i"/>
+				</p:inputText>
 
 				<h:outputText value="CEP"></h:outputText>
 				<p:inputMask value="#{FuncionarioControl.funcionario.cep }"
@@ -64,7 +73,7 @@
 				</p:selectOneMenu>
 				
 				<h:outputText value="RFID"></h:outputText>
-				<p:inputText value="#{FuncionarioControl.funcionario.rfid }"></p:inputText>
+				<p:inputText value="#{FuncionarioControl.funcionario.rfid }" maxlength="11"></p:inputText>
 				
 				<h:outputText value="Papel"></h:outputText>
 				<p:selectOneMenu id="papel"
