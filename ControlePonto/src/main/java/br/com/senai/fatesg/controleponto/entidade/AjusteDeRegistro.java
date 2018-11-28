@@ -9,10 +9,7 @@ import javax.persistence.Id;
 public class AjusteDeRegistro {
 	
 	@Id
-	private Long id;
-	
-	private String nome;
-	private String cpf;
+	private Long id;	
 	private Date data;
 	private int codigoJornadaTrabalho;
 	private long codigoRfid;
@@ -24,12 +21,10 @@ public class AjusteDeRegistro {
 	public AjusteDeRegistro() {
 		super();
 	}
-	public AjusteDeRegistro(Long id, String nome, String cpf, Date data, int codigoJornadaTrabalho, long codigoRfid,
+	public AjusteDeRegistro(Long id, Date data, int codigoJornadaTrabalho, long codigoRfid,
 			Date primeiraEntrada, Date primeiraSaida, Date segundaEntrada, Date segundaSaida, Long saldo) {
 		super();
 		this.id = id;
-		this.nome = nome;
-		this.cpf = cpf;
 		this.data = data;
 		this.codigoJornadaTrabalho = codigoJornadaTrabalho;
 		this.codigoRfid = codigoRfid;
@@ -39,23 +34,12 @@ public class AjusteDeRegistro {
 		this.segundaSaida = segundaSaida;
 		this.saldo = saldo;
 	}
+	
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public String getCpf() {
-		return cpf;
-	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
 	}
 	public Date getData() {
 		return data;

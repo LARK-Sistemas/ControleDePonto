@@ -7,41 +7,6 @@
 	xmlns:a="http://www.ambientinformatica.com.br/jsf2"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
-	
-	<script type="text/javascript">    
-		    PrimeFaces.locales['de'] = {
-		        closeText: 'Schließen',
-		        prevText: 'Zurück',
-		        nextText: 'Weiter',
-		        monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
-		        monthNamesShort: ['Jan', 'Feb', 'März', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
-		        dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
-		        dayNamesShort: ['Son', 'Mon', 'Die', 'Mit', 'Don', 'Fre', 'Sam'],
-		        dayNamesMin: ['S', 'M', 'D', 'M ', 'D', 'F ', 'S'],
-		        weekHeader: 'Woche',
-		        FirstDay: 1,
-		        isRTL: false,
-		        showMonthAfterYear: false,
-		        yearSuffix: '',
-		        timeOnlyTitle: 'Nur Zeit',
-		        timeText: 'Zeit',
-		        hourText: 'Stunde',
-		        minuteText: 'Minute',
-		        secondText: 'Sekunde',
-		        currentText: 'Aktuelles Datum',
-		        ampm: false,
-		        month: 'Monat',
-		        week: 'Woche',
-		        day: 'Tag',
-		        allDayText: 'Ganzer Tag'
-		    };
-		</script>
-	
-	<style type="text/css">
-	    .value {
-	        font-weight: bold;
-	    }
-	</style>
 		<h:form>
 			<p:panel header="Cadastro Jornada de Trabalho" id="panel">
 
@@ -53,8 +18,13 @@
 					<p:message for="id" showDetail="true" />
 
 					<h:outputText value="Descrição:"></h:outputText>
-					<p:inputText id="descricao" maxlength="25" value="#{JornadaTrabalhoControl.jornadaTrabalho.descricao}" >					
-						<p:keyFilter regEx="/[0-9 /]/i"/>											
+					<p:inputText 
+						id="descricao" 
+						maxlength="25" 
+						value="#{JornadaTrabalhoControl.jornadaTrabalho.descricao}" >
+					
+						<p:keyFilter regEx="/[0-9 /]/i"/>	
+										
 					</p:inputText>
 					
 					<h:outputLabel for="multiple" value="Dias da Semana:" />
@@ -82,20 +52,25 @@
                 			#{dias}
             			</p:dataList>
 						</p:outputPanel>
-					</p:dialog>	
-									
-					<p:outputLabel for="time" value="Inicio Horas Diarias:" />
-        				<p:calendar id="time" value="#{JornadaTrabalhoControl.jornadaTrabalho.terminoHorasDiaria }" pattern="HH:mm" timeOnly="true" maxlength="4" />
-					
-					<p:outputLabel for="time" value="Termino Horas Diarias:" />
-        				<p:calendar id="time" value="#{JornadaTrabalhoControl.jornadaTrabalho.terminoHorasDiaria }" pattern="HH:mm" timeOnly="true" maxlength="4" />
-        				
-        			<p:outputLabel for="time" value="Inicio Horas Intervalo:" />
-        				<p:calendar id="time" value="#{JornadaTrabalhoControl.jornadaTrabalho.terminoHorasDiaria }" pattern="HH:mm" timeOnly="true" maxlength="4" />
-        				
-        			<p:outputLabel for="time" value="Termino Horas Intervalo:" />
-        				<p:calendar id="time" value="#{JornadaTrabalhoControl.jornadaTrabalho.terminoHorasDiaria }" pattern="HH:mm" timeOnly="true" maxlength="4" />
-								
+					</p:dialog>
+
+
+					<h:outputText value="Inicio Horas Diarias:"></h:outputText>
+					<p:inputMask
+						value="#{JornadaTrabalhoControl.jornadaTrabalho.inicioHorasDiaria }"
+						mask="99:99"></p:inputMask>
+					<h:outputText value="Termino Horas Diarias:"></h:outputText>
+					<p:inputMask
+						value="#{JornadaTrabalhoControl.jornadaTrabalho.terminoHorasDiaria }"
+						mask="99:99"></p:inputMask>
+					<h:outputText value="Inicio Horas Intervalo:"></h:outputText>
+					<p:inputMask
+						value="#{JornadaTrabalhoControl.jornadaTrabalho.inicioHorasIntervalo }"
+						mask="99:99"></p:inputMask>
+					<h:outputText value="Termino Horas Intervalo:"></h:outputText>
+					<p:inputMask
+						value="#{JornadaTrabalhoControl.jornadaTrabalho.terminoHorasIntervalo }"
+						mask="99:99"></p:inputMask>
 					<h:outputText value="Horas Semanais:"></h:outputText>
 					<p:inputMask
 						value="#{JornadaTrabalhoControl.jornadaTrabalho.horasSemanais }"

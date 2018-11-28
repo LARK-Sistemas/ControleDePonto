@@ -93,28 +93,21 @@
 					<f:selectItem itemLabel="Desligado" itemValue="Desligado" />
 				</p:selectOneMenu>
 				
-				<h:outputText for="multiple" value="Jornadas de Trabalho"></h:outputText>
-				<p:selectCheckboxMenu id="multiple"
-					value="#{FuncionarioControl.funcionario.jornada}"
-					label="Jornadas" multiple="true" filter="true"
-					filterMatchMode="startsWith" panelStyle="width:250px">
-					<f:selectItems value="#{JornadaTrabalhoControl.jornadas}" />
-				</p:selectCheckboxMenu>
-				<p:dialog header="Itens Selecionados" modal="true" showEffect="fade"
-					hideEffect="fade" widgetVar="itemDialog" width="250">
-					<p:outputPanel id="displayItems">
-						<p:dataList
-							value="#{FuncionarioControl.funcionario.jornada}"
-							var="dias" emptyMessage="nenhum dia da semana foi selecionada">
-							<f:facet name="header">
-                    			Jornadas de Trabalho
-                			</f:facet>
-                			#{dias}
-            			</p:dataList>
-					</p:outputPanel>
-				</p:dialog>
+				
+				
+					
+						
+					
+				
 
-
+				<h:outputText value="Horas Diárias"></h:outputText>
+				<p:selectOneMenu id="horasDiarias"
+					value="#{FuncionarioControl.funcionario.horasDiarias}"
+					style="width: 195px">
+					<f:selectItem itemLabel="8 Horas" itemValue="8Horas" />
+					<f:selectItem itemLabel="6 Horas" itemValue="6Horas" />
+					<f:selectItem itemLabel="4 Horas" itemValue="4Horas" />
+				</p:selectOneMenu>
 				
 
 				
@@ -125,7 +118,7 @@
 					value="Excluir" update="funcionarios, panel, displayItems"></p:commandButton>
 			</h:panelGrid>
 		</p:panel>
-
+	<p:outputPanel id="displayItems">
 		<p:dataTable id="funcionarios"
 			value="#{FuncionarioControl.funcionarios }" var="func" width="100%"
 			emptyMessage="Sem registros">
@@ -203,6 +196,6 @@
 			</p:column>
 
 		</p:dataTable>
-
+	</p:outputPanel>
 	</ui:define>
 </ui:composition>

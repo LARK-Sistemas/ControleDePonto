@@ -53,6 +53,8 @@ public class Funcionario {
 	private String papel;
 
 	private String status;
+	
+	private int horasDiarias;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "funcionario")
 	private List<JornadaTrabalho> jornadasDeTrabalho;
@@ -253,6 +255,14 @@ public class Funcionario {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public int getHorasDiarias() {
+		return horasDiarias;
+	}
+
+	public void setHorasDiarias(int horasDiarias) {
+		this.horasDiarias = horasDiarias;
 	}
 
 }
