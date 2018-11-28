@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Scope;
 
 import br.com.ambientinformatica.ambientjsf.util.UtilFaces;
 import br.com.senai.fatesg.controleponto.entidade.JustificativaAbono;
+import br.com.senai.fatesg.controleponto.entidade.Usuario;
 import br.com.senai.fatesg.controleponto.persistencia.JustificativaAbonoDao;
 
 @Named("JustificativaAbonoControl")
@@ -24,16 +25,20 @@ public class JustificativaAbonoControl {
 	private JustificativaAbonoDao justificativaAbonoDao;
 	 
 	private List<JustificativaAbono> justificativaAbonos = new ArrayList<JustificativaAbono>();
-	
+	  
 	@PostConstruct
 	   public void init(){
 	      listar(null);
 	   }
 	
+
+	
 	public void incluir(ActionEvent evt){
 		try {
+			Usuario usuarioLogado = UsuarioLogadoControl.getUsuarioLogado();
+			justificativaAbono.setUsuarioLogado(usuarioLogado);
 			justificativaAbonoDao.alterar(justificativaAbono);
-         listar(evt);
+			listar(evt);
          justificativaAbono = new JustificativaAbono();
 		} catch (Exception e) {
 		   UtilFaces.addMensagemFaces(e);
@@ -59,4 +64,10 @@ public class JustificativaAbonoControl {
 	public List<JustificativaAbono> getJustificativaAbonos() {
 		return justificativaAbonos;
 	}
+	
+	
+
+//	public static Usuario getUsuarioLogado() {
+//		return (Usuario) UtilFaces.getObjetoManagedBean("#{UsuarioLogadoControl.usuario}");
+//	}
 }

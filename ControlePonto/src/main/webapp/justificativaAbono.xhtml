@@ -10,6 +10,15 @@
 		<!-- CADASTRO JUSTIFICATIVAS DE ABONO -->
 		<p:panel header="Justificativa de Abono" id="panel">
 			<h:panelGrid columns="1">
+			<h:outputLabel value="Usuario:" /><h:outputText value="#{UsuarioLogadoControl.usuario.nome}"/>
+				<h:outputLabel value="Senha:" /><h:outputText value="#{UsuarioLogadoControl.usuario.senha}"/>
+				<h:outputLabel value="IP:" /><h:outputText value="#{UsuarioLogadoControl.ip}"/>
+				
+				<!-- ID -->
+				<h:outputLabel value="ID:" />
+				<p:inputText id="id" required="false" label="id" value="#{JustificativaAbonoControl.justificativaAbono.id}"></p:inputText>
+				<p:watermark for="id" value="Usado P/ Alterar" />
+				<p:message for="id" showDetail="true" />
 				<!-- TITULO -->
 				<h:outputText value="Título"></h:outputText>
 				<p:inputText value="#{JustificativaAbonoControl.justificativaAbono.titulo}" maxlength="50"></p:inputText>
@@ -50,6 +59,13 @@
 			<f:facet name="header">
 				<h:outputText value="Lista de Justificativas de Abono"></h:outputText>
 			</f:facet>
+			<!-- ID -->
+			<p:column sortBy="#{abono.id}">
+				<f:facet name="header">
+					<h:outputText value="ID"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{abono.id}"></h:outputText>
+			</p:column>
 			<!-- TITULO -->
 			<p:column sortBy="#{abono.titulo}">
 				<f:facet name="header">
@@ -105,6 +121,13 @@
 					<h:outputText value="Status"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{abono.status}"></h:outputText>
+			</p:column>
+			
+			<p:column >
+				<f:facet name="header">
+					<h:outputText value="Usuario"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{abono.usuarioLogado.login}"></h:outputText>
 			</p:column>
 		</p:dataTable>
 		

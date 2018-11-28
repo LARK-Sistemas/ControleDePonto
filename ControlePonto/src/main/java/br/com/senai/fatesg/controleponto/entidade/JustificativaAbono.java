@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -37,6 +38,8 @@ public class JustificativaAbono {
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "justificativasAbonos")
 	private List<Funcionario> funcionarios;
 	
+	@ManyToOne
+	private Usuario usuarioLogado = new Usuario();
 	
 	public Date getData() {return data;	}
 	public void setData(Date data) {this.data = data;}
@@ -67,6 +70,12 @@ public class JustificativaAbono {
 	public void setDataInicio(String dataInicio) {this.dataInicio = dataInicio;}									//DATA INICIO
 	public void setDataTermino(String dataTermino) {this.dataTermino = dataTermino;}								//DATA TERMINO
 	public void setStatus(String status) {this.status = status;}													//STATUS
+	public Usuario getUsuarioLogado() {
+		return usuarioLogado;
+	}
+	public void setUsuarioLogado(Usuario usuarioLogado) {
+		this.usuarioLogado = usuarioLogado;
+	}
 	
 	
 }
