@@ -18,7 +18,7 @@
 	<http auto-config="true" access-denied-page="/acessoNegado.xhtml" access-decision-manager-ref="accessDecisionManager">
 		<intercept-url pattern="/**.xhtml" access="USUARIO" />
 		<form-login authentication-failure-url="/login.jsp?msg=erro" login-page="/login.jsp" />
-		<logout logout-success-url="/inicio.xhtml" />
+		<logout logout-success-url="/inicio.jsp*" />
 	</http>
 
 	<beans:bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
