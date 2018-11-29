@@ -6,9 +6,34 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:a="http://www.ambientinformatica.com.br/jsf2"
 	xmlns:p="http://primefaces.org/ui">
-	<ui:define name="corpo">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>CG-Ponto</title>
 
+<link href="css/bootstrap.css" rel="stylesheet" />
+<link href="css/bootstrap-responsive.css" rel="stylesheet" />
+<link href="css/inicioEstilo.css" rel="stylesheet" />
 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Cache-Control"
+	content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<script>
+	function focar() {
+		document.getElementById("usuario").focus();
+	}
+</script>
+</head>
+<body>
+	<header class="header_main">
+	<div class="conteudo_header">
+		<img src="/ControlePonto/src/main/webapp/media/coala.jpg"></img>
+		<h1>SISTEMA DE CONTROLE DE PONTO</h1>
+		<p>LARK SISTEMAS</p>
+	</div>
+	</header>
+</body>
+	</html>
 
-	</ui:define>
 </ui:composition>

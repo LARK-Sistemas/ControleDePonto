@@ -31,17 +31,27 @@ public class JustificativaAbonoControl {
 	      listar(null);
 	   }
 	
-
-	
+	public void buscarJustificativa(ActionEvent evt) {
+		justificativaAbono = justificativaAbonoDao.consultar(justificativaAbono.getId());
+		
+	}
 	public void incluir(ActionEvent evt){
 		try {
 			Usuario usuarioLogado = UsuarioLogadoControl.getUsuarioLogado();
 			justificativaAbono.setUsuarioLogado(usuarioLogado);
-			justificativaAbonoDao.alterar(justificativaAbono);
+			justificativaAbonoDao.incluir(justificativaAbono);
 			listar(evt);
          justificativaAbono = new JustificativaAbono();
 		} catch (Exception e) {
 		   UtilFaces.addMensagemFaces(e);
+		}
+	}
+	public void alterar(ActionEvent evt) {
+		try {
+			justificativaAbonoDao.alterar(justificativaAbono);
+			listar(evt);
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
 		}
 	}
 	
