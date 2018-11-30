@@ -27,10 +27,11 @@ public class EmpresaControl {
 
 	@PostConstruct
 	public void init() {
+		//gerarEmpresa();
 		listar(null);
 	}
 
-	public void gerarEmpresa(ActionEvent event) {
+	public void gerarEmpresa() {
 		try {
 			empresa.setCnpj(Long.parseLong("11111111111111")); 	// 11.111.111/1111-11
 			empresa.setRazaoSocial("Funcionarios Felizes LTDA");

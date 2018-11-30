@@ -61,7 +61,6 @@ public class JornadaTrabalhoControl {
 		jornadasTrabalhos = jornadaTrabalhoDao.listar();
 		for (int i = 0; i < jornadasTrabalhos.size(); i++) {
 			if(!jornadasTrabalhos.isEmpty()) {
-				//jornadas.add(jornadaTrabalho.getDescricao());
 				jornadas.add(jornadasTrabalhos.get(i).getDescricao());
 			}
 				

@@ -32,6 +32,7 @@ public class MotivoAbonoControl {
 	
 	public void confirmar(ActionEvent evt) {
 		try {
+			//motivoAbono.mostraNomeFuncionario();
 			MotivoAbonoDao.alterar(motivoAbono);
 			listar(evt);
 			motivoAbono = new MotivoAbono();

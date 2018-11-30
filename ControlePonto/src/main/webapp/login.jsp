@@ -39,7 +39,7 @@
     </div>
 	<div class="row">
         <div class="span8 sidebar">  
-	            	<div class="well quickSignupForm" style="height: 35%; margin-top: 30%; margin-left: 90%; width: 60%;">			        
+	            	<div class="well quickSignupForm" style="height: 35%; margin-top: 20%; margin-left: 60%; width: 60%;">			        
 			        <!-- 	<div class="boxBottom colorFive"> -->
 			          		<h2 class="colorTextThree" style="margin-left: 40%">Login</h2>
 			          		<br/>

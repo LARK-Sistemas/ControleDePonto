@@ -94,21 +94,6 @@
 				</p:selectOneMenu>
 				
 				
-				
-					
-						
-					
-				
-
-				<h:outputText value="Horas Diárias"></h:outputText>
-				<p:selectOneMenu id="horasDiarias"
-					value="#{FuncionarioControl.funcionario.horasDiarias}"
-					style="width: 195px">
-					<f:selectItem itemLabel="8 Horas" itemValue="8Horas" />
-					<f:selectItem itemLabel="6 Horas" itemValue="6Horas" />
-					<f:selectItem itemLabel="4 Horas" itemValue="4Horas" />
-				</p:selectOneMenu>
-				
 
 				
 
@@ -123,6 +108,7 @@
 			value="#{FuncionarioControl.funcionarios }" var="func" width="100%"
 			emptyMessage="Sem registros">
 			<f:facet name="header">
+			
 				<h:outputText value="Lista de Funcionários"></h:outputText>
 			</f:facet>
 

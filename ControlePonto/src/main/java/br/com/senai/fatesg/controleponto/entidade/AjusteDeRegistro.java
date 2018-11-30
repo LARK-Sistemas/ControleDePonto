@@ -10,21 +10,20 @@ public class AjusteDeRegistro {
 	
 	@Id
 	private Long id;	
-	private Date data;
+	private String data;
 	private int codigoJornadaTrabalho;
 	private long codigoRfid;
-	private Date primeiraEntrada;
-	private Date primeiraSaida;
-	private Date segundaEntrada;
-	private Date segundaSaida;
+	private String primeiraEntrada;
+	private String primeiraSaida;
+	private String segundaEntrada;
+	private String segundaSaida;
 	private Long saldo;
 	public AjusteDeRegistro() {
-		super();
 	}
-	public AjusteDeRegistro(Long id, Date data, int codigoJornadaTrabalho, long codigoRfid,
-			Date primeiraEntrada, Date primeiraSaida, Date segundaEntrada, Date segundaSaida, Long saldo) {
+	public AjusteDeRegistro(String data, int codigoJornadaTrabalho, long codigoRfid,
+			String primeiraEntrada, String primeiraSaida, String segundaEntrada, String segundaSaida, Long saldo) {
 		super();
-		this.id = id;
+		//this.id = id;
 		this.data = data;
 		this.codigoJornadaTrabalho = codigoJornadaTrabalho;
 		this.codigoRfid = codigoRfid;
@@ -41,10 +40,10 @@ public class AjusteDeRegistro {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 	public int getCodigoJornadaTrabalho() {
@@ -59,28 +58,28 @@ public class AjusteDeRegistro {
 	public void setCodigoRfid(long codigoRfid) {
 		this.codigoRfid = codigoRfid;
 	}
-	public Date getPrimeiraEntrada() {
+	public String getPrimeiraEntrada() {
 		return primeiraEntrada;
 	}
-	public void setPrimeiraEntrada(Date primeiraEntrada) {
+	public void setPrimeiraEntrada(String primeiraEntrada) {
 		this.primeiraEntrada = primeiraEntrada;
 	}
-	public Date getPrimeiraSaida() {
+	public String getPrimeiraSaida() {
 		return primeiraSaida;
 	}
-	public void setPrimeiraSaida(Date primeiraSaida) {
+	public void setPrimeiraSaida(String primeiraSaida) {
 		this.primeiraSaida = primeiraSaida;
 	}
-	public Date getSegundaEntrada() {
+	public String getSegundaEntrada() {
 		return segundaEntrada;
 	}
-	public void setSegundaEntrada(Date segundaEntrada) {
+	public void setSegundaEntrada(String segundaEntrada) {
 		this.segundaEntrada = segundaEntrada;
 	}
-	public Date getSegundaSaida() {
+	public String getSegundaSaida() {
 		return segundaSaida;
 	}
-	public void setSegundaSaida(Date segundaSaida) {
+	public void setSegundaSaida(String segundaSaida) {
 		this.segundaSaida = segundaSaida;
 	}
 	public Long getSaldo() {

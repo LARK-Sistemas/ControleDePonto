@@ -7,15 +7,45 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
+	<title>CG-Ponto</title>
 
+	<link href="css/bootstrap.css" rel="stylesheet" />
+	<link href="css/bootstrap-responsive.css" rel="stylesheet" />
+	<link href="css/inicioEstilo.css" rel="stylesheet" />
 
 </h:head>
 <h:body>
-
+	<div class="header">
+		<div class="container">
+			<!-- <img src="https://www.4signatureservice.com/files/2016/07/Lark-Logo-2.0-SIG-300x187.png" width="42" height="42"></img> -->
+			<h1>CONTROLE E GESTÃO DE PONTO</h1>
+			<h2><strong>LARK SISTEMAS</strong></h2>
+		</div>
+	</div>
+	<nav id="menu">
+    <ul>
+        <li><a href="inicio.jspx">Home</a></li>
+        <li><a href="empresa.xhtml">Empresa</a></li>
+        <li><a href="funcionario.xhtml">Funcionário</a></li>
+        <li><a href="ajusteDeRegistro.xhtml">Ajuste de Ponto</a></li>
+        <li><a href="justificativaAbono.xhtml">Justificativa de Abonos</a></li>
+        <li><a href="jornadaTrabalho.xhtml">Jornada de Trabalho</a></li>
+        <li><a href="motivoAbono.xhtml">Motivos de Abono</a></li>
+        <li><a href="justificativaAbonoRH.xhtml">Justificativa RH</a></li>
+        <li><a href="#">Sobre a LARK</a></li>
+        <li><a href="login.jsp">Sair</a></li>
+    </ul>
+	</nav>
 	<h:form id="formCorpo">
 		<p:growl autoUpdate="true"></p:growl>
 		<ui:insert name="corpo" />
 	</h:form>
 
 </h:body>
+<footer class="footer" id="footer">
+	<div class="container">
+	<div class="text_footer">2018 - CG Ponto</div>
+		<div class="copyright">Copyright © LARK Sistemas. Todos os direitos reservados.</div>
+	</div>
+</footer>
 </html>

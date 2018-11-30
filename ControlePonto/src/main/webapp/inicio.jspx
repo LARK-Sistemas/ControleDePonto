@@ -47,7 +47,7 @@
         <li><a href="login.jsp">Sair</a></li>
     </ul>
 	</nav>
-	<div>
+	<div style="padding-top: 10px;">
 		<h1>Bem vindo</h1>
 		
 	</div>

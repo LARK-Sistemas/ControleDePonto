@@ -24,6 +24,36 @@ public class MotivoAbono {
 	
 	private String dataTermino;
 	
+	private String nomeFuncionario;
+	
+	private String mostraNomeFuncionario = "";
+	
+	
+	
+	public String getNomeFuncionario() {
+		return nomeFuncionario;
+	}
+
+	public void setNomeFuncionario(String nomeFuncionario) {
+		this.nomeFuncionario = nomeFuncionario;
+	}
+
+	public String getMostraNomeFuncionario() {
+		return mostraNomeFuncionario;
+	}
+
+	public void setMostraNomeFuncionario(String mostraNomeFuncionario) {
+		this.mostraNomeFuncionario = mostraNomeFuncionario;
+	}
+
+	/*public void mostraNomeFuncionario()
+	{
+		for (int i = 0; i < nomeFuncionario.length; i++) {
+			mostraNomeFuncionario+=nomeFuncionario[i];
+		}
+		
+	}*/
+	
 	public Integer getId() {
 		return id;
 	}

@@ -1,12 +1,12 @@
 package testeSelenium;
 
-import org.openqa.selenium.By;
+/*import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;*/
 
 public class TesteSlenium_Login {
 	public static void main(String[] args) throws InterruptedException{  
-		System.setProperty("webdriver.chrome.driver", "C:\\AmbienteTrabalho\\bibliotecas\\chromedriver.exe");
+		/*System.setProperty("webdriver.chrome.driver", "C:\\AmbienteTrabalho\\bibliotecas\\chromedriver.exe");
 	    WebDriver driver = new ChromeDriver();
 	    driver.get("http://localhost:8180/primefaces/funcionario.xhtml");
 	    driver.manage().window().maximize();	    
@@ -21,7 +21,7 @@ public class TesteSlenium_Login {
 	    }	    
 	    //String at = driver.getTitle();
 	    //String et = "Título aqui";
-	    driver.close();	    
+	    driver.close();	  */  
     }
 
 }

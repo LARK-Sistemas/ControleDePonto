@@ -29,14 +29,25 @@ public class FuncionarioControl {
 
 	private List<JornadaTrabalho> jornadasTrabalhos = new ArrayList<JornadaTrabalho>();
 	private List<Funcionario> funcionarios = new ArrayList<Funcionario>();
-	private List<String> jornadas = new ArrayList<String>();
+	private List<String> funcionariosMotivoAbono = new ArrayList<String>();
 	
 	@PostConstruct
 	public void init(){
+		preencherFuncionarios();
 	    listar(null);
 	}
 	
-	
+	private void preencherFuncionarios() {
+		// TODO Auto-generated method stub
+		funcionarios = funcionarioDao.listar();
+		for (int i = 0; i < funcionarios.size(); i++) {
+			if(!funcionarios.isEmpty()) {
+				funcionariosMotivoAbono.add(funcionarios.get(i).getNome());
+			}
+				
+				
+		}
+	}
 	
 	public void confirmar(ActionEvent evt){
 		try {
@@ -103,12 +114,14 @@ public class FuncionarioControl {
 		this.jornadasTrabalhos = jornadasTrabalhos;
 	}
 
-	public List<String> getJornadas() {
-		return jornadas;
+	
+
+	public List<String> getFuncionariosMotivoAbono() {
+		return funcionariosMotivoAbono;
 	}
 
-	public void setJornadas(List<String> jornadas) {
-		this.jornadas = jornadas;
+	public void setFuncionariosMotivoAbono(List<String> funcionariosMotivoAbono) {
+		this.funcionariosMotivoAbono = funcionariosMotivoAbono;
 	}
 
 	public void setFuncionarios(List<Funcionario> funcionarios) {

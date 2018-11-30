@@ -40,12 +40,12 @@ public class JUnit_TesteIncluirFuncionario {
 		
 		assertNull(funcionario);
 		System.out.println("Incluindo um Funcionario: " + funcionario.getNome());
-		funcionarioControl.incluirFuncionario(funcionario);
+		//funcionarioControl.incluirFuncionario(funcionario);
 		
 		Funcionario funcionario2 = new Funcionario();
 		
 		
-		funcionario2 = funcionarioControl.consultar(funcionario);
+		//funcionario2 = funcionarioControl.consultar(funcionario);
 		
 		System.out.println("Consulta Funcionario: " + funcionario2.getNome());
 		assertEquals(funcionario, funcionario2);
