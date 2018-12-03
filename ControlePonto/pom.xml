@@ -126,19 +126,31 @@
 			<version>1.19.2</version>
 		</dependency>
 
-
 		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.9.13</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/org.eclipse.paho/org.eclipse.paho.client.mqttv3 -->
 		<dependency>
 			<groupId>org.eclipse.paho</groupId>
 			<artifactId>org.eclipse.paho.client.mqttv3</artifactId>
 			<version>1.2.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.14.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-server</artifactId>
+			<version>3.14.0</version>
 		</dependency>
 
 	</dependencies>
