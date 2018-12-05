@@ -10,70 +10,79 @@
 		<p:panel header="Cadastro de Funcionários" id="panel">
 			<h:panelGrid columns="4">
 
-				<h:outputLabel value="ID:"></h:outputLabel>
-				<p:inputText id="id" value="#{FuncionarioControl.funcionario.id }"
-					required="false" label="ID"></p:inputText>
-				<p:messages id="messages" showDetail="true" />
-				<p:watermark for="id" value="Usado P/ Excluir e Alterar"
-					id="watermark" />
+				<h:outputLabel value="ID:" />
+				<p:inputText id="id" required="false" label="id"
+				value="#{FuncionarioControl.funcionario.id }" ></p:inputText>
+				<p:watermark for="id" value="Usado P/ Excluir e Alterar" />
+				<p:message for="id" showDetail="true" />
 
 				<h:outputText value="Nome"></h:outputText>
-				<p:inputText value="#{FuncionarioControl.funcionario.nome }" maxlength="50">
+				<p:inputText value="#{FuncionarioControl.funcionario.nome }" maxlength="50" required="true"
+					requiredMessage="Campo Nome deve ser preenchido.">
 					<p:keyFilter regEx="/[a-z ]/i"/>
 				</p:inputText>
 
 				<h:outputText value="CPF"></h:outputText>
 				<p:inputMask value="#{FuncionarioControl.funcionario.cpf }"
-					mask="999.999.999-99"></p:inputMask>
+					mask="999.999.999-99" required="true"
+					requiredMessage="Campo CPF deve ser preenchido."></p:inputMask>
 
-				<h:outputText value="Logradoudo"></h:outputText>
-				<p:inputText value="#{FuncionarioControl.funcionario.logradouro }" maxlength="40">
+				<h:outputText value="Logradouro"></h:outputText>
+				<p:inputText value="#{FuncionarioControl.funcionario.logradouro }" maxlength="40" required="true"
+					requiredMessage="Campo Logradouro deve ser preenchido.">
 					<p:keyFilter regEx="/[a-z ,]/i"/>
 				</p:inputText>
 
 				<h:outputText value="Numero"></h:outputText>
-				<p:inputText value="#{FuncionarioControl.funcionario.numero }" maxlength="5">
+				<p:inputText value="#{FuncionarioControl.funcionario.numero }" maxlength="5" required="true"
+					requiredMessage="Campo Numero deve ser preenchido.">
 					<p:keyFilter regEx="/[0-9]/i"/>
 				</p:inputText>
 
 				<h:outputText value="Complemento"></h:outputText>
-				<p:inputText value="#{FuncionarioControl.funcionario.complemento }" maxlength="40"></p:inputText>
+				<p:inputText value="#{FuncionarioControl.funcionario.complemento }" maxlength="40" ></p:inputText>
 
 				<h:outputText value="Bairro"></h:outputText>
-				<p:inputText value="#{FuncionarioControl.funcionario.bairro }" maxlength="30"></p:inputText>
+				<p:inputText value="#{FuncionarioControl.funcionario.bairro }" maxlength="30"
+				required="true"	requiredMessage="Campo Bairro deve ser preenchido."></p:inputText>
 
 				<h:outputText value="Cidade"></h:outputText>
-				<p:inputText value="#{FuncionarioControl.funcionario.cidade }" maxlength="30">
+				<p:inputText value="#{FuncionarioControl.funcionario.cidade }" maxlength="30" required="true"
+					requiredMessage="Campo Cidade deve ser preenchido.">
 					<p:keyFilter regEx="/[a-z ]/i"/>
 				</p:inputText>
 
 				<h:outputText value="Estado"></h:outputText>
-				<p:inputText value="#{FuncionarioControl.funcionario.estado }" maxlength="20">
+				<p:inputText value="#{FuncionarioControl.funcionario.estado }" maxlength="20" required="true"
+					requiredMessage="Campo Estado deve ser preenchido.">
 					<p:keyFilter regEx="/[a-z ]/i"/>
 				</p:inputText>
 
 				<h:outputText value="CEP"></h:outputText>
 				<p:inputMask value="#{FuncionarioControl.funcionario.cep }"
-					mask="99999-999"></p:inputMask>
+					mask="99999-999" required="true"
+					requiredMessage="Campo CEP deve ser preenchido."></p:inputMask>
 
 				<h:outputText value="Telefone Residencial"></h:outputText>
 				<p:inputMask value="#{FuncionarioControl.funcionario.telefone }"
-					mask="(99) 9999-9999"></p:inputMask>
+					mask="(99) 9999-9999" ></p:inputMask>
 
 				<h:outputText value="Telefone Celular"></h:outputText>
 				<p:inputMask value="#{FuncionarioControl.funcionario.celular }"
-					mask="(99) 99999-9999"></p:inputMask>
+					mask="(99) 99999-9999" required="true"
+					requiredMessage="Campo Celular deve ser preenchido."></p:inputMask>
 
 				<h:outputText value="Banco Horas"></h:outputText>
 				<p:selectOneMenu id="bancoHoras"
 					value="#{FuncionarioControl.funcionario.bancoHoras}"
-					style="width: 195px">
+					style="width: 195px" required="true" requiredMessage="Campo Banco de Horas deve ser preenchido.">
 					<f:selectItem itemLabel="Sim" itemValue="Sim" />
 					<f:selectItem itemLabel="Não" itemValue="Não" />
 				</p:selectOneMenu>
 				
 				<h:outputText value="RFID"></h:outputText>
-				<p:inputText value="#{FuncionarioControl.funcionario.rfid }" maxlength="11"></p:inputText>
+				<p:inputText value="#{FuncionarioControl.funcionario.rfid }" maxlength="11" required="true"
+					requiredMessage="Campo RFID deve ser preenchido."></p:inputText>
 				
 				<h:outputText value="Papel"></h:outputText>
 				<p:selectOneMenu id="papel"
@@ -93,6 +102,14 @@
 					<f:selectItem itemLabel="Desligado" itemValue="Desligado" />
 				</p:selectOneMenu>
 				
+				<h:outputText value="Horas Diarias"></h:outputText>
+				<p:selectOneMenu id="hDiarias"
+					value="#{FuncionarioControl.funcionario.horasDiarias}"
+					style="width: 195px">
+					<f:selectItem itemLabel="12" itemValue="12" />
+					<f:selectItem itemLabel="8" itemValue="8" />
+					<f:selectItem itemLabel="6" itemValue="6" />
+				</p:selectOneMenu>
 				
 
 				
@@ -100,7 +117,7 @@
 				<p:commandButton actionListener="#{FuncionarioControl.confirmar }"
 					value="Incluir/Alterar" update="funcionarios, panel"></p:commandButton>
 				<p:commandButton actionListener="#{FuncionarioControl.excluir }"
-					value="Excluir" update="funcionarios, panel, displayItems"></p:commandButton>
+					value="Excluir" update="funcionarios, panel"></p:commandButton>
 			</h:panelGrid>
 		</p:panel>
 	<p:outputPanel id="displayItems">
@@ -155,11 +172,11 @@
 				<h:outputText value="#{func.bancoHoras }"></h:outputText>
 			</p:column>
 
-			<p:column sortBy="#{func.mostraJornada }">
+			<p:column sortBy="#{func.horasDiarias }">
 				<f:facet name="header">
 					<h:outputText value="Jornada Trabalho"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{func.mostraJornada }"></h:outputText>
+				<h:outputText value="#{func.horasDiarias}"></h:outputText>
 			</p:column>
 
 			<p:column sortBy="#{func.rfid }">

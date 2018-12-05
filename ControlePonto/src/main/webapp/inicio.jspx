@@ -36,15 +36,16 @@
 	<nav id="menu">
     <ul>
         <li><a href="inicio.jspx">Home</a></li>
-        <li><a href="empresa.xhtml">Empresa</a></li>
-        <li><a href="funcionario.xhtml">Funcionário</a></li>
-        <li><a href="ajusteDeRegistro.xhtml">Ajuste de Ponto</a></li>
-        <li><a href="justificativaAbono.xhtml">Justificativa de Abonos</a></li>
-        <li><a href="jornadaTrabalho.xhtml">Jornada de Trabalho</a></li>
-        <li><a href="motivoAbono.xhtml">Motivos de Abono</a></li>
-        <li><a href="justificativaAbonoRH.xhtml">Justificativa RH</a></li>
-        <li><a href="#">Sobre a LARK</a></li>
-        <li><a href="login.jsp">Sair</a></li>
+		<li><a href="empresa.xhtml">Empresa</a></li>
+		<li><a href="funcionario.xhtml">Funcionário</a></li>
+		<li><a href="jornadaTrabalho.xhtml">Jornada de Trabalho</a></li>
+		<li><a href="justificativaAbono.xhtml">Justificativa de Abonos</a></li>
+		<li><a href="justificativaPonto.xhtml">Justificativa de Pontos</a></li>
+		<li><a href="justificativaAbonoRH.xhtml">Justificativa RH</a></li>
+		<li><a href="motivoAbono.xhtml">Motivos de Abono</a></li>
+		<li><a href="ajusteDeRegistro.xhtml">Registro de Ponto</a></li>
+		<li><a href="#">Sobre a LARK</a></li>
+		<li><a href="login.jsp">Sair</a></li>
     </ul>
 	</nav>
 	<div style="padding-top: 10px;">

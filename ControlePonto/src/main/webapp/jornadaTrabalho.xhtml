@@ -13,7 +13,7 @@
 				<h:panelGrid columns="2">
 					<h:outputLabel value="ID:" />
 					<p:inputText id="id" required="false" label="id"
-						value="#{JornadaTrabalhoControl.jornadaTrabalho.id }"></p:inputText>
+						value="#{JornadaTrabalhoControl.jornadaTrabalho.id }" ></p:inputText>
 					<p:watermark for="id" value="Usado P/ Excluir e Alterar" />
 					<p:message for="id" showDetail="true" />
 
@@ -21,17 +21,18 @@
 					<p:inputText 
 						id="descricao" 
 						maxlength="25" 
-						value="#{JornadaTrabalhoControl.jornadaTrabalho.descricao}" >
+						value="#{JornadaTrabalhoControl.jornadaTrabalho.descricao}" required="true"
+					requiredMessage="Campo Descrição deve ser preenchido.">
 					
-						<p:keyFilter regEx="/[0-9 /]/i"/>	
+						<p:keyFilter regEx="/[a-z ]/[0-9]/i"/>	
 										
 					</p:inputText>
 					
 					<h:outputLabel for="multiple" value="Dias da Semana:" />
 					<p:selectCheckboxMenu id="multiple"
 						value="#{JornadaTrabalhoControl.jornadaTrabalho.diasDaSemana}"
-						label="Semana" multiple="true" filter="true"
-						filterMatchMode="startsWith" panelStyle="width:250px">
+						label="Semana" multiple="true" filter="true" required="true"
+						filterMatchMode="startsWith" panelStyle="width:250px" requiredMessage="Campo Dias da Semana deve ser preenchido.">
 						<f:selectItems value="#{JornadaTrabalhoControl.diasSemana}" />
 					</p:selectCheckboxMenu>
 
@@ -41,7 +42,8 @@
 					-->
 					<p:dialog header="Itens Selecionados" modal="true"
 						showEffect="fade" hideEffect="fade" widgetVar="itemDialog"
-						width="250">
+						width="250" required="true"
+					requiredMessage="Campo RFID deve ser preenchido.">
 						<p:outputPanel id="displayItems">
 							<p:dataList
 								value="#{JornadaTrabalhoControl.jornadaTrabalho.diasDaSemana}"
@@ -58,27 +60,33 @@
 					<h:outputText value="Inicio Horas Diarias:"></h:outputText>
 					<p:inputMask
 						value="#{JornadaTrabalhoControl.jornadaTrabalho.inicioHorasDiaria }"
-						mask="99:99"></p:inputMask>
+						mask="99:99" required="true"
+					requiredMessage="Campo Horas Diarias deve ser preenchido."></p:inputMask>
 					<h:outputText value="Termino Horas Diarias:"></h:outputText>
 					<p:inputMask
 						value="#{JornadaTrabalhoControl.jornadaTrabalho.terminoHorasDiaria }"
-						mask="99:99"></p:inputMask>
+						mask="99:99" required="true"
+					requiredMessage="Campo Termino Horas Diarias deve ser preenchido."></p:inputMask>
 					<h:outputText value="Inicio Horas Intervalo:"></h:outputText>
 					<p:inputMask
 						value="#{JornadaTrabalhoControl.jornadaTrabalho.inicioHorasIntervalo }"
-						mask="99:99"></p:inputMask>
+						mask="99:99" required="true"
+					requiredMessage="Campo Inicio Horas Intervalo deve ser preenchido."></p:inputMask>
 					<h:outputText value="Termino Horas Intervalo:"></h:outputText>
 					<p:inputMask
 						value="#{JornadaTrabalhoControl.jornadaTrabalho.terminoHorasIntervalo }"
-						mask="99:99"></p:inputMask>
+						mask="99:99" required="true"
+					requiredMessage="Campo Termino Horas Intervalo deve ser preenchido."></p:inputMask>
 					<h:outputText value="Horas Semanais:"></h:outputText>
 					<p:inputMask
 						value="#{JornadaTrabalhoControl.jornadaTrabalho.horasSemanais }"
-						mask="99.99"></p:inputMask>
+						mask="99.99" required="true"
+					requiredMessage="Campo Horas Semanais deve ser preenchido."></p:inputMask>
 					<h:outputText value="Horas Mensais:"></h:outputText>
 					<p:inputMask
 						value="#{JornadaTrabalhoControl.jornadaTrabalho.horasMensais}"
-						mask="999.99"></p:inputMask>
+						mask="999.99" required="true"
+					requiredMessage="Campo Horas Mensais deve ser preenchido."></p:inputMask>
 					<p:commandButton
 						actionListener="#{JornadaTrabalhoControl.confirmar }"
 						value="Confirmar/Alterar"

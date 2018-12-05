@@ -7,67 +7,82 @@
 	xmlns:a="http://www.ambientinformatica.com.br/jsf2"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
-	
-		<p:panel header="Dados da Empresa" id="panel">			
-			<h:panelGrid columns="4">			
-			
+
+		<p:panel header="Dados da Empresa" id="panel">
+			<h:panelGrid columns="4">
+
 				<h:outputLabel value="ID:" />
-				<p:inputText id="id" required="false" label="id" value="#{EmpresaControl.empresa.id }"></p:inputText>
+				<p:inputText id="id" required="false" label="id"
+					value="#{EmpresaControl.empresa.id }"></p:inputText>
 				<p:watermark for="id" value="Usado para Alterar" />
 				<p:message for="id" showDetail="true" />
-				
+
 				<h:outputText value="Razão Social"></h:outputText>
-				<p:inputText value="#{EmpresaControl.empresa.razaoSocial}" maxlength="50"></p:inputText>
-				
-				<h:outputText value="Nome Fantasia"></h:outputText>
-				<p:inputText value="#{EmpresaControl.empresa.nomeFantasia}" maxlength="50"></p:inputText>
-				
-				<h:outputText value="Logradouro"></h:outputText>
-				<p:inputText value="#{EmpresaControl.empresa.logradouro}" maxlength="40">
-					<p:keyFilter regEx="/[a-z ,]/i"/>
+				<p:inputText value="#{EmpresaControl.empresa.razaoSocial}"
+					maxlength="50">
+					<p:keyFilter regEx="/[a-z ]/i" />
 				</p:inputText>
-				
+
+				<h:outputText value="Nome Fantasia"></h:outputText>
+				<p:inputText value="#{EmpresaControl.empresa.nomeFantasia}"
+					maxlength="50"></p:inputText>
+
+				<h:outputText value="Logradouro"></h:outputText>
+				<p:inputText value="#{EmpresaControl.empresa.logradouro}"
+					maxlength="40">
+					<p:keyFilter regEx="/[a-z ,]/i" />
+				</p:inputText>
+
 				<h:outputText value="Numero"></h:outputText>
 				<p:inputText value="#{EmpresaControl.empresa.numero}" maxlength="6"></p:inputText>
-				
+
 				<h:outputText value="Complemento"></h:outputText>
-				<p:inputText value="#{EmpresaControl.empresa.complemento}" maxlength="40"></p:inputText>
-				
+				<p:inputText value="#{EmpresaControl.empresa.complemento}"
+					maxlength="40"></p:inputText>
+
 				<h:outputText value="Bairro"></h:outputText>
 				<p:inputText value="#{EmpresaControl.empresa.bairro}" maxlength="30"></p:inputText>
-				
+
 				<h:outputText value="Cidade"></h:outputText>
 				<p:inputText value="#{EmpresaControl.empresa.cidade}" maxlength="30"></p:inputText>
-				
+
 				<h:outputText value="Estado"></h:outputText>
 				<p:inputText value="#{EmpresaControl.empresa.estado}" maxlength="20"></p:inputText>
-				
+
 				<h:outputText value="CEP"></h:outputText>
 				<p:inputMask value="#{EmpresaControl.empresa.cep}" mask="99.999-999"></p:inputMask>
 
 				<h:outputText value="Email"></h:outputText>
 				<p:inputText value="#{EmpresaControl.empresa.email}" maxlength="40"></p:inputText>
-	
+
 				<h:outputText value="Telefone"></h:outputText>
-				<p:inputMask value="#{EmpresaControl.empresa.telefone}" mask="(99)9999-9999"></p:inputMask>
-	
+				<p:inputMask value="#{EmpresaControl.empresa.telefone}"
+					mask="(99)9999-9999"></p:inputMask>
+
 				<h:outputText value="Site"></h:outputText>
 				<p:inputText value="#{EmpresaControl.empresa.site}" maxlength="40"></p:inputText>
-	
+
 				<h:outputText value="Rede Social"></h:outputText>
-				<p:inputText value="#{EmpresaControl.empresa.redeSocial}" maxlength="40"></p:inputText>
-		
+				<p:inputText value="#{EmpresaControl.empresa.redeSocial}"
+					maxlength="40"></p:inputText>
+
 				<h:outputText value="Porcentagem Horas Extra"></h:outputText>
-				<p:inputText value="#{EmpresaControl.empresa.porcentagemHorasExtras}" maxlength="2"></p:inputText>
-		
-				<p:commandButton actionListener="#{EmpresaControl.gerarEmpresa }" value="Buscar Empresa" update="empresa, panel"></p:commandButton>
-			
-				<p:commandButton actionListener="#{EmpresaControl.confirmar }" value="Alterar" update="empresa, panel"></p:commandButton>
+				<p:inputText
+					value="#{EmpresaControl.empresa.porcentagemHorasExtras}"
+					maxlength="2"></p:inputText>
+
+				<p:commandButton
+					actionListener="#{EmpresaControl.consultarEmpresa }"
+					value="Buscar Empresa" update="empresa, panel"></p:commandButton>
+
+				<p:commandButton actionListener="#{EmpresaControl.confirmar }"
+					value="Alterar" update="empresa, panel"></p:commandButton>
 			</h:panelGrid>
 		</p:panel>
 
-			<!-- TABELA DA EMPRESA -->
-			<p:dataTable id="empresa" value="#{EmpresaControl.empresas}" var="emp" width="100%" emptyMessage="Sem registros">
+		<!-- TABELA DA EMPRESA -->
+		<p:dataTable id="empresa" value="#{EmpresaControl.empresas}" var="emp"
+			width="100%" emptyMessage="Sem registros">
 			<f:facet name="header">
 				<h:outputText value="Dados da Empresa"></h:outputText>
 			</f:facet>

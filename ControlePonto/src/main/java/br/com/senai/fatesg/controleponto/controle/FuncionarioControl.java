@@ -51,7 +51,7 @@ public class FuncionarioControl {
 	
 	public void confirmar(ActionEvent evt){
 		try {
-			funcionario.mostraJornada();
+			//funcionario.mostraJornada();
 			funcionarioDao.alterar(funcionario);
          listar(evt);
          funcionario = new Funcionario();

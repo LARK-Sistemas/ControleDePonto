@@ -14,9 +14,9 @@
 			<p:growl id="msgs" showDetail="true" />
 
 				<p:dataTable id="AjusteDeRegisgro" var="ajuste" value="#{AjusteDeRegistroControl.ajusteDeRegistros}"
-					editable="true" editMode="cell" widgetVar="cellCars">
+					editable="false" editMode="cell" widgetVar="cellCars">
 					<f:facet name="header">
-            			Ajuste de Registro de Ponto
+            			Registro de Ponto
         			</f:facet>
 
 					<p:ajax event="cellEdit" listener="#{AjusteDeRegistroControl.onCellEdit}"
@@ -28,7 +28,18 @@
 								<h:outputText value="#{ajuste.id}" />
 							</f:facet>
 							<f:facet name="input">
-								<p:inputText id="modelInput" value="#{ajuste.id}" style="width:96%" />
+								<p:inputText id="modelInput" value="#{ajuste.id}" style="width:96%"/>
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					
+					<p:column headerText="Nome Funcionario">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{ajuste.nomeFuncionario}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{ajuste.nomeFuncionario}" style="width:96%" label="Nome Funcionario" />
 							</f:facet>
 						</p:cellEditor>
 					</p:column>

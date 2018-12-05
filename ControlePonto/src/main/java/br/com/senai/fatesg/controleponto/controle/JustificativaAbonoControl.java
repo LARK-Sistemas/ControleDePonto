@@ -25,6 +25,7 @@ public class JustificativaAbonoControl {
 	private JustificativaAbonoDao justificativaAbonoDao;
 	 
 	private List<JustificativaAbono> justificativaAbonos = new ArrayList<JustificativaAbono>();
+	private Integer id;
 	  
 	@PostConstruct
 	   public void init(){
@@ -32,7 +33,22 @@ public class JustificativaAbonoControl {
 	   }
 	
 	public void buscarJustificativa(ActionEvent evt) {
-		justificativaAbono = justificativaAbonoDao.consultar(justificativaAbono.getId());
+		System.out.println(id);
+		justificativaAbonos = justificativaAbonoDao.listar();
+		for (int i = 0; i < justificativaAbonos.size(); i++) {
+			if(justificativaAbonos.get(i).getId() == id) {
+				justificativaAbono.setId(justificativaAbonos.get(i).getId());
+				justificativaAbono.setTitulo(justificativaAbonos.get(i).getTitulo());
+				justificativaAbono.setDescricao(justificativaAbonos.get(i).getDescricao());
+				justificativaAbono.setHorasDiariaInicio(justificativaAbonos.get(i).getHorasDiariaInicio());
+				justificativaAbono.setHorasDiariaTermino(justificativaAbonos.get(i).getHorasDiariaTermino());
+				justificativaAbono.setDataInicio(justificativaAbonos.get(i).getDataInicio());
+				justificativaAbono.setDataTermino(justificativaAbonos.get(i).getDataTermino());
+				justificativaAbono.setStatus(justificativaAbonos.get(i).getStatus());
+				justificativaAbono.setData(justificativaAbonos.get(i).getData());
+				justificativaAbono.setUsuarioLogado(justificativaAbonos.get(i).getUsuarioLogado());
+			}
+		}
 		
 	}
 	public void incluir(ActionEvent evt){
@@ -73,6 +89,26 @@ public class JustificativaAbonoControl {
 	
 	public List<JustificativaAbono> getJustificativaAbonos() {
 		return justificativaAbonos;
+	}
+
+	public JustificativaAbonoDao getJustificativaAbonoDao() {
+		return justificativaAbonoDao;
+	}
+
+	public void setJustificativaAbonoDao(JustificativaAbonoDao justificativaAbonoDao) {
+		this.justificativaAbonoDao = justificativaAbonoDao;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setJustificativaAbonos(List<JustificativaAbono> justificativaAbonos) {
+		this.justificativaAbonos = justificativaAbonos;
 	}
 	
 	

@@ -8,56 +8,45 @@
 	<ui:define name="corpo">
 
 		<!-- CADASTRO JUSTIFICATIVAS DE ABONO -->
-		<p:panel header="Justificativas de Abonos RH" id="panel">
+		<p:panel header="Justificativa de Abono" id="panel">
 			<h:panelGrid columns="1">
-			<h:outputLabel value="Usuario:" /><h:outputText value="#{UsuarioLogadoControl.usuario.nome}"/>
+				<h:outputLabel value="Usuario:" /><h:outputText value="#{UsuarioLogadoControl.usuario.nome}"/>
 				<h:outputLabel value="Senha:" /><h:outputText value="#{UsuarioLogadoControl.usuario.senha}"/>
-				<h:outputLabel value="IP:" /><h:outputText value="#{UsuarioLogadoControl.ip}"/>
 				
-				<!-- ID -->
-				<h:outputLabel value="ID:" />
-				<p:inputText id="id" required="false" label="id" value="#{JustificativaAbonoControl.id}"></p:inputText>
-				<p:watermark for="id" value="Usado P/ Alterar" />
-				<p:message for="id" showDetail="true" />
-				<!-- BOTÃO BUSCAR JUSTIFICATIVA -->
-				<p:commandButton actionListener="#{JustificativaAbonoControl.buscarJustificativa}" value="Buscar Justificativa" update="justificativaAbono, panel"></p:commandButton>
 				<!-- TITULO -->
 				<h:outputText value="Título"></h:outputText>
-				<p:inputText value="#{JustificativaAbonoControl.justificativaAbono.titulo}" maxlength="50" required="false"
+				<p:inputText value="#{JustificativaAbonoControl.justificativaAbono.titulo}" maxlength="50" required="true"
 					requiredMessage="Campo Título deve ser preenchido."></p:inputText>
 				<!-- DESCRICAO -->
 				<h:outputText value="Descrição"></h:outputText>
-				<p:inputTextarea rows="10" cols="50" value="#{JustificativaAbonoControl.justificativaAbono.descricao}" maxlength="254" required="false"
-					requiredMessage="Campo Título deve ser preenchido."></p:inputTextarea>
-				<!-- ANEXO DE DOCUMENTO -->
-				<h:outputText value="Anexar Documentos"></h:outputText>
-    			<p:fileUpload value="#{JustificativaAbonoControl.justificativaAbono.anexoDocumento}" mode="simple"/>
+				<p:inputTextarea rows="10" cols="50" value="#{JustificativaAbonoControl.justificativaAbono.descricao}" maxlength="254" required="true"
+					requiredMessage="Campo Descrição deve ser preenchido."></p:inputTextarea>
 				<!-- HORAS DIARIA INICIO -->
-				<h:outputText value="Hora Inicio"></h:outputText>
-				<p:inputMask value="#{JustificativaAbonoControl.justificativaAbono.horasDiariaInicio}" mask="99:99" required="false"
-					requiredMessage="Campo Título deve ser preenchido."></p:inputMask>
+				<h:outputText value="Primeira Entrada"></h:outputText>
+				<p:inputMask value="#{JustificativaAbonoControl.justificativaAbono.horasDiariaInicio}" mask="99:99" required="true"
+					requiredMessage="Campo Hora Inicio deve ser preenchido."></p:inputMask>
 				<!-- HORAS DIARIA TERMINO -->
-				<h:outputText value="Hora Término"></h:outputText>
-				<p:inputMask value="#{JustificativaAbonoControl.justificativaAbono.horasDiariaTermino}" mask="99:99" required="false"
-					requiredMessage="Campo Título deve ser preenchido."></p:inputMask>
+				<h:outputText value="Primeira Saida"></h:outputText>
+				<p:inputMask value="#{JustificativaAbonoControl.justificativaAbono.horasDiariaTermino}" mask="99:99" required="true"
+					requiredMessage="Hora Término deve ser preenchido."></p:inputMask>
 				<!-- DATA DE INICIO -->
-				<h:outputText value="Data Inicio"></h:outputText>
-				<p:inputMask value="#{JustificativaAbonoControl.justificativaAbono.dataInicio}" mask="99/99/9999" required="false"
-					requiredMessage="Campo Título deve ser preenchido."></p:inputMask>
+				<h:outputText value="Segunda Entrada"></h:outputText>
+				<p:inputMask value="#{JustificativaAbonoControl.justificativaAbono.dataInicio}" mask="99/99/9999" required="true"
+					requiredMessage="Campo Data Inicio deve ser preenchido."></p:inputMask>
 				<!-- DATA TERMINO -->
-				<h:outputText value="Data Termino"></h:outputText>
-				<p:inputMask value="#{JustificativaAbonoControl.justificativaAbono.dataTermino}" mask="99/99/9999" required="false"
-					requiredMessage="Campo Título deve ser preenchido."></p:inputMask>
+				<h:outputText value="Segunda Sainda"></h:outputText>
+				<p:inputMask value="#{JustificativaAbonoControl.justificativaAbono.dataTermino}" mask="99/99/9999" required="true"
+					requiredMessage="Campo Data Termino deve ser preenchido."></p:inputMask>
 				<!-- STATUS -->
-				<p:outputLabel for="status" value="Status:" />
-        		<p:selectOneMenu id="status" value="#{JustificativaAbonoControl.justificativaAbono.status}">
+				<!-- <p:outputLabel for="status" value="Status:" />
+        		<p:selectOneMenu id="status" value="#{JustificativaAbonoControl.justificativaAbono.status}" disabled="true">
             	<f:selectItem itemLabel="Selecione" itemValue=""/>
             	<f:selectItem itemLabel="Aceito" itemValue="Aceito"/>
             	<f:selectItem itemLabel="Recusado" itemValue="Recusado"/>
-        		</p:selectOneMenu>
+        		</p:selectOneMenu> -->
 				
 				<!-- BOTAO ADICIONAR -->
-				<p:commandButton actionListener="#{JustificativaAbonoControl.alterar }"	value="Adicionar" ajax="false" update="justificativaAbono, panel"></p:commandButton>
+				<p:commandButton actionListener="#{JustificativaAbonoControl.incluir }"	value="Adicionar" ajax="false" update="justificativaAbono, panel"></p:commandButton>
 			</h:panelGrid>
 		</p:panel>
 		

@@ -11,6 +11,7 @@ public class AjusteDeRegistro {
 	@Id
 	private Long id;	
 	private String data;
+	private String nomeFuncionario;
 	private int codigoJornadaTrabalho;
 	private long codigoRfid;
 	private String primeiraEntrada;
@@ -18,13 +19,18 @@ public class AjusteDeRegistro {
 	private String segundaEntrada;
 	private String segundaSaida;
 	private Long saldo;
+	
 	public AjusteDeRegistro() {
 	}
-	public AjusteDeRegistro(String data, int codigoJornadaTrabalho, long codigoRfid,
+		
+	
+	
+	public AjusteDeRegistro(Long id, String data, String nomeFuncionario, int codigoJornadaTrabalho, long codigoRfid,
 			String primeiraEntrada, String primeiraSaida, String segundaEntrada, String segundaSaida, Long saldo) {
 		super();
-		//this.id = id;
+		this.id = id;
 		this.data = data;
+		this.nomeFuncionario = nomeFuncionario;
 		this.codigoJornadaTrabalho = codigoJornadaTrabalho;
 		this.codigoRfid = codigoRfid;
 		this.primeiraEntrada = primeiraEntrada;
@@ -33,7 +39,15 @@ public class AjusteDeRegistro {
 		this.segundaSaida = segundaSaida;
 		this.saldo = saldo;
 	}
-	
+
+
+
+	public String getNomeFuncionario() {
+		return nomeFuncionario;
+	}
+	public void setNomeFuncionario(String nomeFuncionario) {
+		this.nomeFuncionario = nomeFuncionario;
+	}
 	public Long getId() {
 		return id;
 	}

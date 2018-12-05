@@ -37,7 +37,7 @@ public class EmpresaControl {
 			empresa.setRazaoSocial("Funcionarios Felizes LTDA");
 			empresa.setNomeFantasia("Funcionários Felizes");
 			empresa.setLogradouro("Rua do emprego");
-			empresa.setNumero("123");
+			empresa.setNumero("11");
 			empresa.setComplemento("Quadra A Lotes 1, 2 e 3");
 			empresa.setBairro("Setor dos funcionários");
 			empresa.setCidade("Goiânia");
@@ -56,10 +56,34 @@ public class EmpresaControl {
 		}
 	}
 
+	public void consultarEmpresa(ActionEvent event) {
+		try {
+			empresas = empresaDao.listar();
+			empresa.setRazaoSocial(empresas.get(0).getRazaoSocial());
+			empresa.setNomeFantasia(empresas.get(0).getNomeFantasia());
+			empresa.setCnpj(empresas.get(0).getCnpj());
+			empresa.setLogradouro(empresas.get(0).getLogradouro());
+			empresa.setNumero(empresas.get(0).getNumero());
+			empresa.setComplemento(empresas.get(0).getComplemento());
+			empresa.setBairro(empresas.get(0).getBairro());
+			empresa.setCidade(empresas.get(0).getCidade());
+			empresa.setEstado(empresas.get(0).getEstado());
+			empresa.setCep(empresas.get(0).getCep());
+			empresa.setInscricaoEstadual(empresas.get(0).getInscricaoEstadual());
+			empresa.setEmail(empresas.get(0).getEmail());
+			empresa.setTelefone(empresas.get(0).getTelefone());
+			empresa.setSite(empresas.get(0).getSite());
+			empresa.setRedeSocial(empresas.get(0).getRedeSocial());
+			empresa.setPorcentagemHorasExtras(empresas.get(0).getPorcentagemHorasExtras());
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
 	
 	public void confirmar(ActionEvent event) {
 		try {
 			empresaDao.alterar(empresa);
+			listar(event);
 		} catch (Exception e) {
 			UtilFaces.addMensagemFaces(e);
 		}
