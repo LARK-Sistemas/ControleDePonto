@@ -44,6 +44,17 @@
 						</p:cellEditor>
 					</p:column>
 					
+					<p:column headerText="RFID Funcionario">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{ajuste.codigoRfid}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{ajuste.codigoRfid}" style="width:96%" label="RFID Funcionario" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					
 					<p:column headerText="Data">
 						<p:cellEditor>
 							<f:facet name="output">
@@ -55,13 +66,13 @@
 						</p:cellEditor>
 					</p:column>
 					
-					<p:column headerText="Codigo Jornada">
+					<p:column headerText="Jornada Diária">
 						<p:cellEditor>
 							<f:facet name="output">
 								<h:outputText value="#{ajuste.codigoJornadaTrabalho}" />
 							</f:facet>
 							<f:facet name="input">
-								<p:inputText value="#{ajuste.codigoJornadaTrabalho}" style="width:96%" label="Codigo Jornada" />
+								<p:inputText value="#{ajuste.codigoJornadaTrabalho}" style="width:96%" label="Jornada Diária" />
 							</f:facet>
 						</p:cellEditor>
 					</p:column>

@@ -13,7 +13,7 @@ public class AjusteDeRegistro {
 	private String data;
 	private String nomeFuncionario;
 	private int codigoJornadaTrabalho;
-	private long codigoRfid;
+	private String codigoRfid;
 	private String primeiraEntrada;
 	private String primeiraSaida;
 	private String segundaEntrada;
@@ -25,7 +25,7 @@ public class AjusteDeRegistro {
 		
 	
 	
-	public AjusteDeRegistro(Long id, String data, String nomeFuncionario, int codigoJornadaTrabalho, long codigoRfid,
+	public AjusteDeRegistro(Long id, String data, String nomeFuncionario, int codigoJornadaTrabalho, String codigoRfid,
 			String primeiraEntrada, String primeiraSaida, String segundaEntrada, String segundaSaida, Long saldo) {
 		super();
 		this.id = id;
@@ -66,10 +66,10 @@ public class AjusteDeRegistro {
 	public void setCodigoJornadaTrabalho(int codigoJornadaTrabalho) {
 		this.codigoJornadaTrabalho = codigoJornadaTrabalho;
 	}
-	public long getCodigoRfid() {
+	public String getCodigoRfid() {
 		return codigoRfid;
 	}
-	public void setCodigoRfid(long codigoRfid) {
+	public void setCodigoRfid(String codigoRfid) {
 		this.codigoRfid = codigoRfid;
 	}
 	public String getPrimeiraEntrada() {
